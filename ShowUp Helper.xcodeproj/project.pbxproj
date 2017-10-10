@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB31ABE21F8D67D200F28195 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB31ABE11F8D67D200F28195 /* SectionHeader.xib */; };
 		BB7B03AF1F852E5E0062D719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03AE1F852E5E0062D719 /* AppDelegate.swift */; };
-		BB7B03B11F852E5E0062D719 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03B01F852E5E0062D719 /* ViewController.swift */; };
 		BB7B03B41F852E5E0062D719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB7B03B21F852E5E0062D719 /* Main.storyboard */; };
 		BB7B03B71F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03B51F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld */; };
 		BB7B03B91F852E5E0062D719 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB7B03B81F852E5E0062D719 /* Assets.xcassets */; };
 		BB7B03BC1F852E5E0062D719 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB7B03BA1F852E5E0062D719 /* LaunchScreen.storyboard */; };
 		BB7B03C71F852E5E0062D719 /* ShowUp_HelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03C61F852E5E0062D719 /* ShowUp_HelperTests.swift */; };
 		BB7B03D21F852E5E0062D719 /* ShowUp_HelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03D11F852E5E0062D719 /* ShowUp_HelperUITests.swift */; };
+		BB7B03E21F852EAA0062D719 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03E11F852EAA0062D719 /* QRViewController.swift */; };
+		BB7B03E61F8534240062D719 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03E51F8534240062D719 /* UserDefaultsExtension.swift */; };
+		BB9D03CE1F87BC1C004515BF /* ChecksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03CD1F87BC1C004515BF /* ChecksController.swift */; };
+		BB9D03D01F87D8B0004515BF /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03CF1F87D8B0004515BF /* NSDateExtension.swift */; };
+		BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB31ABE11F8D67D200F28195 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		BB7B03AB1F852E5E0062D719 /* ShowUp Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShowUp Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7B03AE1F852E5E0062D719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB7B03B01F852E5E0062D719 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB7B03B31F852E5E0062D719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB7B03B61F852E5E0062D719 /* ShowUp_Helper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShowUp_Helper.xcdatamodel; sourceTree = "<group>"; };
 		BB7B03B81F852E5E0062D719 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +54,11 @@
 		BB7B03CD1F852E5E0062D719 /* ShowUp HelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShowUp HelperUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7B03D11F852E5E0062D719 /* ShowUp_HelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUp_HelperUITests.swift; sourceTree = "<group>"; };
 		BB7B03D31F852E5E0062D719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB7B03E11F852EAA0062D719 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		BB7B03E51F8534240062D719 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		BB9D03CD1F87BC1C004515BF /* ChecksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksController.swift; sourceTree = "<group>"; };
+		BB9D03CF1F87D8B0004515BF /* NSDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +110,13 @@
 			isa = PBXGroup;
 			children = (
 				BB7B03AE1F852E5E0062D719 /* AppDelegate.swift */,
-				BB7B03B01F852E5E0062D719 /* ViewController.swift */,
-				BB7B03B21F852E5E0062D719 /* Main.storyboard */,
 				BB7B03B81F852E5E0062D719 /* Assets.xcassets */,
-				BB7B03BA1F852E5E0062D719 /* LaunchScreen.storyboard */,
-				BB7B03BD1F852E5E0062D719 /* Info.plist */,
 				BB7B03B51F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld */,
+				BB7B03BD1F852E5E0062D719 /* Info.plist */,
+				BB7B03E71F87B4630062D719 /* Model */,
+				BB7B03E91F87B4950062D719 /* View */,
+				BB7B03E81F87B4880062D719 /* Controller */,
+				BB7B03EA1F87B49E0062D719 /* Extensions */,
 			);
 			path = "ShowUp Helper";
 			sourceTree = "<group>";
@@ -126,6 +137,42 @@
 				BB7B03D31F852E5E0062D719 /* Info.plist */,
 			);
 			path = "ShowUp HelperUITests";
+			sourceTree = "<group>";
+		};
+		BB7B03E71F87B4630062D719 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB31ABE11F8D67D200F28195 /* SectionHeader.xib */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BB7B03E81F87B4880062D719 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BB7B03E11F852EAA0062D719 /* QRViewController.swift */,
+				BB9D03CD1F87BC1C004515BF /* ChecksController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BB7B03E91F87B4950062D719 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB7B03B21F852E5E0062D719 /* Main.storyboard */,
+				BB7B03BA1F852E5E0062D719 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB7B03EA1F87B49E0062D719 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BB7B03E51F8534240062D719 /* UserDefaultsExtension.swift */,
+				BB9D03CF1F87D8B0004515BF /* NSDateExtension.swift */,
+				BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB31ABE21F8D67D200F28195 /* SectionHeader.xib in Resources */,
 				BB7B03BC1F852E5E0062D719 /* LaunchScreen.storyboard in Resources */,
 				BB7B03B91F852E5E0062D719 /* Assets.xcassets in Resources */,
 				BB7B03B41F852E5E0062D719 /* Main.storyboard in Resources */,
@@ -262,9 +310,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB7B03E61F8534240062D719 /* UserDefaultsExtension.swift in Sources */,
+				BB9D03D01F87D8B0004515BF /* NSDateExtension.swift in Sources */,
 				BB7B03B71F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld in Sources */,
-				BB7B03B11F852E5E0062D719 /* ViewController.swift in Sources */,
+				BB9D03CE1F87BC1C004515BF /* ChecksController.swift in Sources */,
 				BB7B03AF1F852E5E0062D719 /* AppDelegate.swift in Sources */,
+				BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */,
+				BB7B03E21F852EAA0062D719 /* QRViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
