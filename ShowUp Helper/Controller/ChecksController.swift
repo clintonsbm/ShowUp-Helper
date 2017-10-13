@@ -25,8 +25,9 @@ class ChecksController: NSObject {
     
     func syncTimer() {
         if let lastCheck = self.getAllChecks(printResults: false).last {
-            if lastCheck?.value(forKey: self.checkOutKey) == nil {
+            if UserDefaults().isWorking() {
                 if let lastCheckIn = lastCheck?.value(forKey: self.checkInKey) {
+//                    fix check in count
                     self.checkInDate = (lastCheckIn as! NSDate)
                     
                     self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)

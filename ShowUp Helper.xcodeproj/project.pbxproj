@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB31ABE21F8D67D200F28195 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB31ABE11F8D67D200F28195 /* SectionHeader.xib */; };
+		BB31ABE41F8D6CB000F28195 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB31ABE31F8D6CB000F28195 /* HistoryViewController.swift */; };
 		BB7B03AF1F852E5E0062D719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03AE1F852E5E0062D719 /* AppDelegate.swift */; };
 		BB7B03B41F852E5E0062D719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB7B03B21F852E5E0062D719 /* Main.storyboard */; };
 		BB7B03B71F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03B51F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		BB31ABE11F8D67D200F28195 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
+		BB31ABE31F8D6CB000F28195 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BB7B03AB1F852E5E0062D719 /* ShowUp Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShowUp Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7B03AE1F852E5E0062D719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB7B03B31F852E5E0062D719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				BB7B03E11F852EAA0062D719 /* QRViewController.swift */,
 				BB9D03CD1F87BC1C004515BF /* ChecksController.swift */,
+				BB31ABE31F8D6CB000F28195 /* HistoryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				BB7B03AF1F852E5E0062D719 /* AppDelegate.swift in Sources */,
 				BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */,
 				BB7B03E21F852EAA0062D719 /* QRViewController.swift in Sources */,
+				BB31ABE41F8D6CB000F28195 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
