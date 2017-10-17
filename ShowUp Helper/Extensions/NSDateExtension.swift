@@ -47,6 +47,22 @@ extension NSDate {
         return dateFormatter.string(from: self as Date)
     }
     
+    var monthInt: Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM"
+        
+        return Int(dateFormatter.string(from: (self as Date) as Date))!
+    }
+
+    
+    var year: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        
+        return dateFormatter.string(from: self as Date)
+    }
+    
+    
     func toString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss"

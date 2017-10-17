@@ -7,46 +7,87 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryViewController: UIViewController {
 
+    let checksController = ChecksController()
+    
+    var baseDate = NSDate()
+    
+    var arrayOfChecks: [Int: [NSManagedObject]] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.arrayOfChecks = self.formatDatabaseFor(date: self.baseDate)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func formatDatabaseFor(date: NSDate) -> [Int: [NSManagedObject]] {
+        
+        let arrayOfChecks = self.checksController.getAllChecks(printResults: true)
+        
+        let arrayFilteredByMonth = arrayOfChecks.filter { ($0?.value(forKey: self.checksController.checkOutKey) as? NSDate)?.year == date.year && ($0?.value(forKey: self.checksController.checkOutKey) as? NSDate)?.monthInt == date.monthInt } as? [NSManagedObject]
+        
+        
+        var weekDictionary: [Int: [NSManagedObject]] = [:]
+        
+        if let _ = arrayFilteredByMonth {
+            
+            for check in arrayFilteredByMonth! {
+            
+                let checkAsDate = check.value(forKey: self.checksController.checkOutKey) as! NSDate
+                
+                if weekDictionary[checkAsDate.weekOfMonth] == nil {
+                    weekDictionary[checkAsDate.weekOfMonth] = [check]
+                } else {
+                    weekDictionary[checkAsDate.weekOfMonth]?.append(check)
+                }
+            }
+        
+            for key in weekDictionary {
+                for check in key.value {
+                    print("\(String(describing: check.value(forKey: self.checksController.checkInKey)))  -  \(String(describing: check.value(forKey: self.checksController.checkOutKey)))")
+                }
+            }
+        }
+        
+        return weekDictionary
     }
-    */
-
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return self.arrayOfChecks.keys.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if let count = self.arrayOfChecks[section]?.count {
+            return count
+        }
+        
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        
-        return cell
+        if indexPath.row == 0 {
+            //First cell - week from to
+        } else if indexPath.row == 1 {
+            //Second cell - day of week
+        } else if indexPath.row == 2{
+            //Fourth cell - time labels structure
+        } else if indexPath.row + 1 == self.arrayOfChecks[indexPath.section]?.count {
+            //Last cell - total time
+        } else {
+            
+        }
     }
 }

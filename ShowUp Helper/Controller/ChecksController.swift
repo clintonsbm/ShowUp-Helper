@@ -11,10 +11,9 @@ import CoreData
 
 class ChecksController: NSObject {
     
-    //Save some atribute to make possible retrieve this data
     var entity: NSEntityDescription?
     
-    let entityName = "CheckIO"
+    private let entityName = "CheckIO"
     let checkInKey = "checkIn"
     let checkOutKey = "checkOut"
     
@@ -27,7 +26,6 @@ class ChecksController: NSObject {
         if let lastCheck = self.getAllChecks(printResults: false).last {
             if UserDefaults().isWorking() {
                 if let lastCheckIn = lastCheck?.value(forKey: self.checkInKey) {
-//                    fix check in count
                     self.checkInDate = (lastCheckIn as! NSDate)
                     
                     self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -173,19 +171,6 @@ class ChecksController: NSObject {
     func finalizeTimer() {
         if let lastCheck = self.getAllChecks(printResults: false).last {
             if let lastCheckOut = lastCheck?.value(forKey: self.checkOutKey) {
-
-//                var timeElapsed = (lastCheckOut as! Date).timeIntervalSince((lastCheck?.value(forKey: self.checkInKey) as! Date))
-//
-//                // Calculate minutes
-//                let hours = Int(timeElapsed / 3600.0)
-//                timeElapsed -= (TimeInterval(hours) * 3600.0)
-//
-//                let minutes = Int(timeElapsed / 60.0)
-//                timeElapsed -= (TimeInterval(minutes) * 60)
-//
-//                // Calculate seconds
-//                let seconds = Int(timeElapsed.rounded())
-//                timeElapsed -= TimeInterval(seconds)
                 
                 self.updateLabelsDelegate?.stopStopwatch()
             }
