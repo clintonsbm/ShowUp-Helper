@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CheckInOutRange_TableViewCell: UITableViewCell {
+class CheckInOutRangeTableViewCell: UITableViewCell {
 
     @IBOutlet var week: UILabel!
     @IBOutlet var weekBackgroundView: UIView!
@@ -20,6 +20,21 @@ class CheckInOutRange_TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.weekBackgroundView.backgroundColor = UIColor.white
+        self.weekBackgroundView.dropShadow()
+    }
+    
+    func set(firstEntered: NSDate) {
+        
+        let weekNumber = String(format: "%02d", firstEntered.weekOfMonth)
+        self.week.text = "Week \(weekNumber)"
+        
+        let from = firstEntered.startOfWeek
+        let fromFormated = String(format: "%02d", from)
+        self.fromDay.text = fromFormated
+        
+        let toFormated = String(format: "%02d", from + 6)
+        self.toDay.text = toFormated
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -170,7 +170,7 @@ class ChecksController: NSObject {
     
     func finalizeTimer() {
         if let lastCheck = self.getAllChecks(printResults: false).last {
-            if let lastCheckOut = lastCheck?.value(forKey: self.checkOutKey) {
+            if (lastCheck?.value(forKey: self.checkOutKey)) != nil {
                 
                 self.updateLabelsDelegate?.stopStopwatch()
             }

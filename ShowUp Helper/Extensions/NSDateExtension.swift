@@ -30,6 +30,13 @@ extension NSDate {
         return Int(dateFormatter.string(from: self as Date))!
     }
     
+    var day: Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd"
+        
+        return Int(dateFormatter.string(from: self as Date))!
+    }
+    
     var dayOfWeek: String {
         
         return DateFormatter().weekdaySymbols[Calendar.current.component(.weekday, from: self as Date)]
@@ -53,7 +60,6 @@ extension NSDate {
         
         return Int(dateFormatter.string(from: (self as Date) as Date))!
     }
-
     
     var year: String {
         let dateFormatter = DateFormatter()
@@ -62,6 +68,11 @@ extension NSDate {
         return dateFormatter.string(from: self as Date)
     }
     
+    var startOfWeek: Int {
+        let inputDate = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self as Date)) as! NSDate
+        
+        return inputDate.day
+    }
     
     func toString() -> String {
         let dateFormatter = DateFormatter()

@@ -16,6 +16,10 @@ class DayOfWeekTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func set(firstDate: NSDate) {
+        self.dayOfWeek.text = firstDate.dayOfWeek
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
