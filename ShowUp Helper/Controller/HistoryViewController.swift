@@ -21,6 +21,8 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabbleView.register(UINib(nibName: "CheckInOutRangeViewXib", bundle: nil), forHeaderFooterViewReuseIdentifier: CheckInOutRangeHeader.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +86,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let count = self.dictionaryOfChecks[keyOfSection]?.count {
             //Number of checks in a day plus the 4 ones of structure (checkInOutRange, dayOfWeek, labelsStructureAndTime, totalTime)
-            return count + 4
+            return count + 3
         }
         
         return 0
@@ -102,17 +104,22 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         let firstDate = self.dictionaryOfChecks[keyOfSection]?.first?.value(forKey: self.checksController.checkInKey) as! NSDate
         
-        let referenceRow = indexPath.row - 3 //Minus 3 rows in structure, the last one is not considered
+        let referenceRow = indexPath.row - 2  //Minus 3 rows in structure, the last one is not considered
         
-        if indexPath.row == 0 {
-            //First cell - week from to
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.checkInOutRange.rawValue)! as! CheckInOutRangeTableViewCell
-            
-            cell.set(firstEntered: firstDate)
-            
-            return cell
-        } else if indexPath.row == 1 {
+//        if indexPath.row == 0 {
+//            //First cell - week from to
+//
+////            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.checkInOutRange.rawValue)! as! CheckInOutRangeTableViewCell
+////
+////            cell.set(firstEntered: firstDate)
+////
+////            return cell
+//
+//            let cell = UITableViewCell(style: .default, reuseIdentifier: "test")
+//
+//            return cell
+//        }
+         if indexPath.row == 0 {
             //Second cell - day of week
             
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.dayOfWeek.rawValue)! as! DayOfWeekTableViewCell
@@ -120,13 +127,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             cell.set(firstDate: firstDate)
             
             return cell
-        } else if indexPath.row == 2{
-            //Fourth cell - time labels structure
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.labelsStructureAndTime.rawValue)!
-            
-            return cell
-        } else if indexPath.row == (self.dictionaryOfChecks[keyOfSection]?.count)! + 3 {
+        } else if indexPath.row == (self.dictionaryOfChecks[keyOfSection]?.count)! + 2 {
             //Last cell - total time
             
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.totalTime.rawValue)! as! TotalTimeTableViewCell
@@ -138,7 +139,9 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         } else {
-            print(indexPath.row)
+//            print(indexPath.row)
+//            print(referenceRow)
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.labelsStructureAndTime.rawValue)! as! LabelsStructureAndTimeTimeTableViewCell
             
             let checkInDate = self.dictionaryOfChecks[keyOfSection]?[referenceRow].value(forKey: self.checksController.checkInKey) as! NSDate
@@ -148,6 +151,74 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: CheckInOutRangeHeader.identifier) as! CheckInOutRangeHeader
         
+        var keysArray: [Int] = []
+        
+        for key in self.dictionaryOfChecks.keys {
+            keysArray.append(key)
+        }
+        
+        let keyOfSection = keysArray[section]
+        
+        let firstDate = self.dictionaryOfChecks[keyOfSection]?.first?.value(forKey: self.checksController.checkInKey) as! NSDate
+        
+        cell.set(firstEntered: firstDate)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 74
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 69
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -43,7 +43,7 @@ class TotalTimeTableViewCell: UITableViewCell {
         let formatedHours = String(format: "%02d", hours)
         let formatedMinutes = String(format: "%02d", minutes)
         
-        self.totalTImeLabe.text = "\(formatedHours):\(formatedMinutes)"
+        self.totalTImeLabe.text = "Day total: \(formatedHours):\(formatedMinutes)"
     }
 
 }

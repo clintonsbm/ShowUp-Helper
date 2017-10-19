@@ -14,6 +14,8 @@ class LabelsStructureAndTimeTimeTableViewCell: UITableViewCell {
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var exitedLabel: UILabel!
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,12 +34,12 @@ class LabelsStructureAndTimeTimeTableViewCell: UITableViewCell {
         let enteredHours = String(format: "%02d", entered.hour)
         let enteredMinutes = String(format: "%02d", entered.minute)
         
-        self.enteredLabel.text = "\(enteredHours):\(enteredMinutes) \(emoji)"
+        self.enteredLabel.text = "\(enteredHours):\(enteredMinutes)"
         
         let exitedHours = String(format: "%02d", entered.hour)
         let exitedMinutes = String(format: "%02d", entered.minute)
         
-        self.exitedLabel.text = "\(emoji) \(exitedHours):\(exitedMinutes)"
+        self.exitedLabel.text = "\(exitedHours):\(exitedMinutes)"
         
         var timeInterval: Double = 0
         

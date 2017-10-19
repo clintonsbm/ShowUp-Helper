@@ -89,11 +89,11 @@ class QRViewController: UIViewController {
         self.backgroundCheckButton.dropShadow()
         self.backgroundTimeLbl.dropShadow()
         self.backgroundDayTimeLbl.dropShadow()
-        
-        self.weekOfMonthLbl.text = "Week \(NSDate().weekOfMonth)"
+        /*
+        slf.weekOfMonthLbl.text = "Week \(NSDate().weekOfMonth)"
         self.dayOfWeek.text = "\(NSDate().dayOfWeek)"
         self.month.text = "\(NSDate().month)"
-        
+        */
         let selectImageGesture = UITapGestureRecognizer(target: self, action: #selector(self.selectImage))
         
         self.qrCodeImageView.image = UserDefaults().retriveQRCode()
