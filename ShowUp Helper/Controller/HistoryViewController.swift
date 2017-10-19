@@ -24,7 +24,7 @@ class HistoryViewController: UIViewController {
         
         self.tabbleView.register(UINib(nibName: "CheckInOutRangeViewXib", bundle: nil), forHeaderFooterViewReuseIdentifier: CheckInOutRangeHeader.identifier)
         
-        self.tabbleView.register(UINib(nibName: "MonthResumeXib", bundle: nil), forHeaderFooterViewReuseIdentifier: MonthResumeFooter.identifier)
+        self.tabbleView.register(UINib(nibName: "MonthResumeXib", bundle: nil), forCellReuseIdentifier: MonthResumeCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,8 +93,8 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         let keyOfSection = self.arrayOfKeys(index: section)
         
         if let count = self.dictionaryOfChecks[keyOfSection]?.count {
-            //Number of checks in a day plus the 2 ones of structure (dayOfWeek, totalTime)
-            return count + 2
+            //Number of checks in a day plus the 3 ones of structure (dayOfWeek, totalTime)
+            return count + 3
         }
         
         return 0
@@ -127,9 +127,21 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             return cell
-        } else {
-//            print(indexPath.row)
-//            print(referenceRow)
+        }
+         else if indexPath.row == (self.dictionaryOfChecks[keyOfSection]?.count)! + 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MonthResumeCell.identifier)!
+            // as! MonthResumeFooter
+            
+            //        let keyOfSection = self.arrayOfKeys(index: section)
+            
+            //        print("Section: \(section) || Week: \(keyOfSection) || First date: \(firstDate)")
+            
+            //        cell.set(firstEntered: firstDate)
+            
+            return cell
+         } else {
+            print(indexPath.row)
+            print(referenceRow)
             
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.labelsStructureAndTime.rawValue)! as! LabelsStructureAndTimeTimeTableViewCell
             
@@ -166,22 +178,6 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 69
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: MonthResumeFooter.identifier)// as! MonthResumeFooter
-        
-//        let keyOfSection = self.arrayOfKeys(index: section)
-        
-//        print("Section: \(section) || Week: \(keyOfSection) || First date: \(firstDate)")
-        
-//        cell.set(firstEntered: firstDate)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 170
     }
 }
 

@@ -14,8 +14,6 @@ class LabelsStructureAndTimeTimeTableViewCell: UITableViewCell {
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var exitedLabel: UILabel!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

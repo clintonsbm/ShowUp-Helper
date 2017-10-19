@@ -28,7 +28,7 @@
 		BB9D03D01F87D8B0004515BF /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03CF1F87D8B0004515BF /* NSDateExtension.swift */; };
 		BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */; };
 		BBAC7F2C1F994FC900DD4356 /* MonthResumeXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBAC7F2B1F994FC900DD4356 /* MonthResumeXib.xib */; };
-		BBAC7F301F99501400DD4356 /* MonthResumeFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC7F2F1F99501400DD4356 /* MonthResumeFooter.swift */; };
+		BBAC7F301F99501400DD4356 /* MonthResumeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC7F2F1F99501400DD4356 /* MonthResumeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +76,7 @@
 		BB9D03CF1F87D8B0004515BF /* NSDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		BBAC7F2B1F994FC900DD4356 /* MonthResumeXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthResumeXib.xib; sourceTree = "<group>"; };
-		BBAC7F2F1F99501400DD4356 /* MonthResumeFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthResumeFooter.swift; sourceTree = "<group>"; };
+		BBAC7F2F1F99501400DD4356 /* MonthResumeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthResumeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +220,7 @@
 		BBAC7F2E1F994FF000DD4356 /* MonthResumeFooter */ = {
 			isa = PBXGroup;
 			children = (
-				BBAC7F2F1F99501400DD4356 /* MonthResumeFooter.swift */,
+				BBAC7F2F1F99501400DD4356 /* MonthResumeCell.swift */,
 				BBAC7F2B1F994FC900DD4356 /* MonthResumeXib.xib */,
 			);
 			path = MonthResumeFooter;
@@ -374,7 +374,7 @@
 				BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */,
 				BB0E0ADC1F990D74009565AC /* CheckInOutRangeHeader.swift in Sources */,
 				BB7B03E21F852EAA0062D719 /* QRViewController.swift in Sources */,
-				BBAC7F301F99501400DD4356 /* MonthResumeFooter.swift in Sources */,
+				BBAC7F301F99501400DD4356 /* MonthResumeCell.swift in Sources */,
 				BB31ABEE1F964F9F00F28195 /* TotalTimeTableViewCell.swift in Sources */,
 				BB31ABE41F8D6CB000F28195 /* HistoryViewController.swift in Sources */,
 			);

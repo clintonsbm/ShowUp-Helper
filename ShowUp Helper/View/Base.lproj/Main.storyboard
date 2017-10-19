@@ -469,18 +469,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total: 00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5y-f6-3n5">
-                                                    <rect key="frame" x="18" y="12" width="284" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: 00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5y-f6-3n5">
+                                                    <rect key="frame" x="8" y="12" width="304" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Separator" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-6q-ytU">
-                                                    <rect key="frame" x="16" y="48" width="304" height="1"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Separator" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-6q-ytU">
+                                                    <rect key="frame" x="16" y="47" width="304" height="1"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="8DM-hG-dDc"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="lXf-6q-ytU" secondAttribute="bottom" id="I4R-ZS-PT0"/>
+                                                <constraint firstItem="lXf-6q-ytU" firstAttribute="top" secondItem="T5y-f6-3n5" secondAttribute="bottom" constant="11" id="NCQ-Qt-0Ou"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="T5y-f6-3n5" secondAttribute="trailing" id="NdJ-cg-HY5"/>
+                                                <constraint firstItem="T5y-f6-3n5" firstAttribute="leading" secondItem="TW4-vB-Izx" secondAttribute="leadingMargin" id="acX-e6-RIU"/>
+                                                <constraint firstAttribute="bottom" secondItem="lXf-6q-ytU" secondAttribute="bottom" id="bdg-Cy-9tT"/>
+                                                <constraint firstItem="T5y-f6-3n5" firstAttribute="top" secondItem="TW4-vB-Izx" secondAttribute="topMargin" constant="4" id="fuP-vi-4bj"/>
+                                                <constraint firstAttribute="trailing" secondItem="lXf-6q-ytU" secondAttribute="trailing" id="hVG-cf-dcD"/>
+                                                <constraint firstItem="lXf-6q-ytU" firstAttribute="leading" secondItem="TW4-vB-Izx" secondAttribute="leading" constant="16" id="quo-w2-pYI"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="totalTImeLabe" destination="T5y-f6-3n5" id="5zp-FB-q3b"/>

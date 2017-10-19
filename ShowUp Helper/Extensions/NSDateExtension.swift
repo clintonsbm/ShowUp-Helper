@@ -12,6 +12,7 @@ extension NSDate {
     var hour: Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"
+        dateFormatter.timeZone = TimeZone.current
         
         return Int(dateFormatter.string(from: self as Date))!
     }
@@ -19,6 +20,7 @@ extension NSDate {
     var minute: Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "mm"
+        dateFormatter.timeZone = TimeZone.current
         
         return Int(dateFormatter.string(from: self as Date))!
     }
@@ -26,6 +28,7 @@ extension NSDate {
     var second: Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "ss"
+        dateFormatter.timeZone = TimeZone.current
         
         return Int(dateFormatter.string(from: self as Date))!
     }
@@ -33,13 +36,16 @@ extension NSDate {
     var day: Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd"
+        dateFormatter.timeZone = TimeZone.current
         
         return Int(dateFormatter.string(from: self as Date))!
     }
     
     var dayOfWeek: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
         
-        return DateFormatter().weekdaySymbols[Calendar.current.component(.weekday, from: self as Date)]
+        return dateFormatter.weekdaySymbols[Calendar.current.component(.weekday, from: self as Date)]
     }
     
     var weekOfMonth: Int {
@@ -50,6 +56,7 @@ extension NSDate {
     var month: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM"
+        dateFormatter.timeZone = TimeZone.current
         
         return dateFormatter.string(from: self as Date)
     }
@@ -57,6 +64,7 @@ extension NSDate {
     var monthInt: Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM"
+        dateFormatter.timeZone = TimeZone.current
         
         return Int(dateFormatter.string(from: (self as Date) as Date))!
     }
@@ -64,11 +72,13 @@ extension NSDate {
     var year: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy"
+        dateFormatter.timeZone = TimeZone.current
         
         return dateFormatter.string(from: self as Date)
     }
     
     var startOfWeek: Int {
+        
         let inputDate = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self as Date)) as! NSDate
         
         return inputDate.day
@@ -77,6 +87,7 @@ extension NSDate {
     func toString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.timeZone = TimeZone.current
         
         return dateFormatter.string(from: self as Date)
     }

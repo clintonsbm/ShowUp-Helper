@@ -9,20 +9,27 @@
 import UIKit
 import CoreData
 
-class MonthResumeFooter: UITableViewHeaderFooterView {
+class MonthResumeCell: UITableViewCell {
 
     @IBOutlet var totalTimeMorning: UILabel!
     @IBOutlet var totalTimeAfternoon: UILabel!
     @IBOutlet var totalTimeWeek: UILabel!
     
+    @IBOutlet var checkMorning: UILabel!
+    @IBOutlet var checkAfternoon: UILabel!
+    @IBOutlet var checkTimeWeek: UILabel!
+    
     static let identifier = "MonthResumeXib"
+    
+    private static let emojiTrue = "✅"
+    private static let emojiFalse = "⚠️"
     
     override func draw(_ rect: CGRect) {
         // Drawing code
     }
 
     func set(weekChecks: [NSManagedObject]) {
-        for check in weekChecks {
+        for _ in weekChecks {
             //
         }
     }
