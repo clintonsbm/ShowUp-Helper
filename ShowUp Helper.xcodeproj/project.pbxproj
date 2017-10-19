@@ -27,6 +27,8 @@
 		BB9D03CE1F87BC1C004515BF /* ChecksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03CD1F87BC1C004515BF /* ChecksController.swift */; };
 		BB9D03D01F87D8B0004515BF /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03CF1F87D8B0004515BF /* NSDateExtension.swift */; };
 		BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */; };
+		BBAC7F2C1F994FC900DD4356 /* MonthResumeXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBAC7F2B1F994FC900DD4356 /* MonthResumeXib.xib */; };
+		BBAC7F301F99501400DD4356 /* MonthResumeFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC7F2F1F99501400DD4356 /* MonthResumeFooter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		BB9D03CD1F87BC1C004515BF /* ChecksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksController.swift; sourceTree = "<group>"; };
 		BB9D03CF1F87D8B0004515BF /* NSDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		BBAC7F2B1F994FC900DD4356 /* MonthResumeXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthResumeXib.xib; sourceTree = "<group>"; };
+		BBAC7F2F1F99501400DD4356 /* MonthResumeFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthResumeFooter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,8 +170,8 @@
 		BB7B03E71F87B4630062D719 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BB0E0ADB1F990D74009565AC /* CheckInOutRangeHeader.swift */,
-				BB0E0AD71F990AD6009565AC /* CheckInOutRangeViewXib.xib */,
+				BBAC7F2D1F994FD400DD4356 /* CheckInOutRangeHeader */,
+				BBAC7F2E1F994FF000DD4356 /* MonthResumeFooter */,
 				BB31ABE91F964F6900F28195 /* DayOfWeekTableViewCell.swift */,
 				BB31ABEB1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift */,
 				BB31ABED1F964F9F00F28195 /* TotalTimeTableViewCell.swift */,
@@ -202,6 +206,24 @@
 				BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BBAC7F2D1F994FD400DD4356 /* CheckInOutRangeHeader */ = {
+			isa = PBXGroup;
+			children = (
+				BB0E0ADB1F990D74009565AC /* CheckInOutRangeHeader.swift */,
+				BB0E0AD71F990AD6009565AC /* CheckInOutRangeViewXib.xib */,
+			);
+			path = CheckInOutRangeHeader;
+			sourceTree = "<group>";
+		};
+		BBAC7F2E1F994FF000DD4356 /* MonthResumeFooter */ = {
+			isa = PBXGroup;
+			children = (
+				BBAC7F2F1F99501400DD4356 /* MonthResumeFooter.swift */,
+				BBAC7F2B1F994FC900DD4356 /* MonthResumeXib.xib */,
+			);
+			path = MonthResumeFooter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB7B03BC1F852E5E0062D719 /* LaunchScreen.storyboard in Resources */,
+				BBAC7F2C1F994FC900DD4356 /* MonthResumeXib.xib in Resources */,
 				BB7B03B91F852E5E0062D719 /* Assets.xcassets in Resources */,
 				BB7B03B41F852E5E0062D719 /* Main.storyboard in Resources */,
 				BB0E0AD81F990AD6009565AC /* CheckInOutRangeViewXib.xib in Resources */,
@@ -351,6 +374,7 @@
 				BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */,
 				BB0E0ADC1F990D74009565AC /* CheckInOutRangeHeader.swift in Sources */,
 				BB7B03E21F852EAA0062D719 /* QRViewController.swift in Sources */,
+				BBAC7F301F99501400DD4356 /* MonthResumeFooter.swift in Sources */,
 				BB31ABEE1F964F9F00F28195 /* TotalTimeTableViewCell.swift in Sources */,
 				BB31ABE41F8D6CB000F28195 /* HistoryViewController.swift in Sources */,
 			);

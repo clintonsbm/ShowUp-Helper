@@ -23,7 +23,6 @@ class CheckInOutRangeHeader: UITableViewHeaderFooterView {
         
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
-        self.weekBackgroundView.backgroundColor = UIColor.white
         self.weekBackgroundView.dropShadow()
     }
     
