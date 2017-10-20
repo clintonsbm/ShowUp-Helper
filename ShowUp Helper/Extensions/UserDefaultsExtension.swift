@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum MinimalTime: String {
+    case morning = "morningMinimalTime"
+    case afternoon = "afternoonMinimalTime"
+    case week = "weekMinimalTime"
+    case month = "monthMinimalTime"
+}
+
 extension UserDefaults {
     
     private var isWorkingStr: String {
@@ -24,6 +31,10 @@ extension UserDefaults {
     
     private var qrImageStr: String {
         return "qrImage"
+    }
+    
+    private var emptyStateQRCode: String {
+        return "emptyStateQRCode"
     }
     
     ///Inverts the status of checking. True is Checking In and false is Checking Out.
@@ -57,17 +68,20 @@ extension UserDefaults {
     func getCheckLabelAnColor() -> (String, UIColor) {
         let check = UserDefaults.standard.object(forKey: self.isWorkingStr)
         
+        let start = "Start"
+        let stop = "Stop"
+        
         if let isWorking = check as? Bool {
             
             switch isWorking {
             case false:
-                return ("Start", UIColor(red: 68/255, green: 219/255, blue: 94/255, alpha: 1))
+                return (start, UIColor(red: 68/255, green: 219/255, blue: 94/255, alpha: 1))
             case true:
-                return ("Stop", UIColor(red: 254/255, green: 56/255, blue: 36/255, alpha: 1))
+                return (stop, UIColor(red: 254/255, green: 56/255, blue: 36/255, alpha: 1))
             }
         } else {
             
-            return ("Start", UIColor(red: 68/255, green: 219/255, blue: 94/255, alpha: 1))
+            return (start, UIColor(red: 68/255, green: 219/255, blue: 94/255, alpha: 1))
         }
     }
     
@@ -81,24 +95,39 @@ extension UserDefaults {
         UserDefaults.standard.set(date, forKey: self.checkOutgStr)
     }
     
+    ///Saves the QRCode image
     func saveQRImage(image: UIImage){
         let imageData = UIImagePNGRepresentation(image)
         
         UserDefaults.standard.set(imageData, forKey: self.qrImageStr)
     }
     
+    ///Retrieves the QRCode image
     func retriveQRCode() -> UIImage{
-        let emptyStateQRCode = "emptyStateQRCode"
         
         guard let imageData = UserDefaults.standard.object(forKey: self.qrImageStr) as? Data else {
-            return UIImage(named: emptyStateQRCode)!
+            return UIImage(named: self.emptyStateQRCode)!
         }
         
         guard let image = UIImage(data: imageData) else {
-            return UIImage(named: emptyStateQRCode)!
+            return UIImage(named: self.emptyStateQRCode)!
         }
         
         return image
+    }
+    
+    ///Save minimal parameter
+    func saveMinimal(minimalCase: MinimalTime, secTime: Double) {
+        UserDefaults.standard.set(secTime, forKey: minimalCase.rawValue)
+    }
+    
+    ///Retrive minimal parameter
+    func retrieveMinimal(minimalCase: MinimalTime) -> Double? {
+        if let secTime = UserDefaults.standard.object(forKey: minimalCase.rawValue) as? Double {
+            return secTime
+        } else {
+            return nil
+        }
     }
 }
 

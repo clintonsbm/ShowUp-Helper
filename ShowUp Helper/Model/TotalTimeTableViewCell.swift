@@ -33,17 +33,9 @@ class TotalTimeTableViewCell: UITableViewCell {
             totalTime += (check.value(forKey: checkController.checkOutKey) as! NSDate).timeIntervalSince(((check.value(forKey: checkController.checkInKey) as! NSDate) as Date))
         }
         
-        // Calculate minutes
-        let hours = Int(totalTime / 3600.0)
-        totalTime -= (TimeInterval(hours) * 3600.0)
+        let formatedTime: (h: String, m: String, s: String) = totalTime.formatSecToHMS()
         
-        let minutes = Int(totalTime / 60.0)
-        totalTime -= (TimeInterval(minutes) * 60)
-        
-        let formatedHours = String(format: "%02d", hours)
-        let formatedMinutes = String(format: "%02d", minutes)
-        
-        self.totalTImeLabe.text = "Day total: \(formatedHours):\(formatedMinutes)"
+        self.totalTImeLabe.text = "\(formatedTime.h):\(formatedTime.m)"
     }
 
 }

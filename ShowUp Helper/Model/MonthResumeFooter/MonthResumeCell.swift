@@ -21,16 +21,20 @@ class MonthResumeCell: UITableViewCell {
     
     static let identifier = "MonthResumeXib"
     
+    var totalMorning: Double = 0
+    var totalAfternoon: Double = 0
+    
     private static let emojiTrue = "✅"
     private static let emojiFalse = "⚠️"
     
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override func awakeFromNib() {
+        self.selectionStyle = .none
     }
 
     func set(weekChecks: [NSManagedObject]) {
         for _ in weekChecks {
-            //
+            //continuar daqui
+            
         }
     }
 }

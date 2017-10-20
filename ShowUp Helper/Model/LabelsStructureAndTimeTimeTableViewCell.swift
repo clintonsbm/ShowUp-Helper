@@ -29,15 +29,9 @@ class LabelsStructureAndTimeTimeTableViewCell: UITableViewCell {
             emoji = "☀️"
         }
         
-        let enteredHours = String(format: "%02d", entered.hour)
-        let enteredMinutes = String(format: "%02d", entered.minute)
+        self.enteredLabel.text = "\(entered.hour.formatTwoCases()):\(entered.minute.formatTwoCases())"
         
-        self.enteredLabel.text = "\(enteredHours):\(enteredMinutes)"
-        
-        let exitedHours = String(format: "%02d", entered.hour)
-        let exitedMinutes = String(format: "%02d", entered.minute)
-        
-        self.exitedLabel.text = "\(exitedHours):\(exitedMinutes)"
+        self.exitedLabel.text = "\(exited.hour.formatTwoCases()):\(exited.minute.formatTwoCases())"
         
         var timeInterval: Double = 0
         
@@ -45,30 +39,14 @@ class LabelsStructureAndTimeTimeTableViewCell: UITableViewCell {
         
         if timeInterval <= 59 {
             let seconds = Int(timeInterval)
-            let formatedSeconds = String(format: "%02d", seconds)
             
-            self.amountLabel.text = "\(formatedSeconds) sec"
+            self.amountLabel.text = "\(seconds.formatTwoCases()) sec"
         } else {
             
-            // Calculate minutes
-            let hours = Int(timeInterval / 3600.0)
-            timeInterval -= (TimeInterval(hours) * 3600.0)
+            let formatedTime: (h: String, m: String, s: String) = timeInterval.formatSecToHMS()
             
-            let minutes = Int(timeInterval / 60.0)
-            timeInterval -= (TimeInterval(minutes) * 60)
-            
-            let formatedHours = String(format: "%02d", hours)
-            let formatedMinutes = String(format: "%02d", minutes)
-            
-            self.amountLabel.text = "\(formatedHours):\(formatedMinutes)"
+            self.amountLabel.text = "\(formatedTime.h):\(formatedTime.m)"
         }
         
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

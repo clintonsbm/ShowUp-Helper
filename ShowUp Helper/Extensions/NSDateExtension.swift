@@ -91,4 +91,26 @@ extension NSDate {
         
         return dateFormatter.string(from: self as Date)
     }
+    
+    
+    ///Necessery?
+    func formatedTwoCases() -> (String, String, String) {
+        return(String(format: "%02d", self.hour), String(format: "%02d", self.minute), String(format: "%02d", self.second))
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

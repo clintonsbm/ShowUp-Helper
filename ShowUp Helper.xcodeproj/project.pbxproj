@@ -29,6 +29,8 @@
 		BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */; };
 		BBAC7F2C1F994FC900DD4356 /* MonthResumeXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBAC7F2B1F994FC900DD4356 /* MonthResumeXib.xib */; };
 		BBAC7F301F99501400DD4356 /* MonthResumeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC7F2F1F99501400DD4356 /* MonthResumeCell.swift */; };
+		BBFDB37C1F9A35030069EE78 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFDB37B1F9A35030069EE78 /* DoubleExtension.swift */; };
+		BBFDB37E1F9A3CB10069EE78 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFDB37D1F9A3CB10069EE78 /* IntExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		BBAC7F2B1F994FC900DD4356 /* MonthResumeXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthResumeXib.xib; sourceTree = "<group>"; };
 		BBAC7F2F1F99501400DD4356 /* MonthResumeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthResumeCell.swift; sourceTree = "<group>"; };
+		BBFDB37B1F9A35030069EE78 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		BBFDB37D1F9A3CB10069EE78 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +208,8 @@
 				BB7B03E51F8534240062D719 /* UserDefaultsExtension.swift */,
 				BB9D03CF1F87D8B0004515BF /* NSDateExtension.swift */,
 				BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */,
+				BBFDB37B1F9A35030069EE78 /* DoubleExtension.swift */,
+				BBFDB37D1F9A3CB10069EE78 /* IntExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,9 +376,11 @@
 				BB31ABEA1F964F6900F28195 /* DayOfWeekTableViewCell.swift in Sources */,
 				BB0E0AE21F992C0D009565AC /* CreateTestDatabase.swift in Sources */,
 				BB31ABEC1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift in Sources */,
+				BBFDB37C1F9A35030069EE78 /* DoubleExtension.swift in Sources */,
 				BB31ABF11F969EB800F28195 /* CellIdentifier.swift in Sources */,
 				BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */,
 				BB0E0ADC1F990D74009565AC /* CheckInOutRangeHeader.swift in Sources */,
+				BBFDB37E1F9A3CB10069EE78 /* IntExtension.swift in Sources */,
 				BB7B03E21F852EAA0062D719 /* QRViewController.swift in Sources */,
 				BBAC7F301F99501400DD4356 /* MonthResumeCell.swift in Sources */,
 				BB31ABEE1F964F9F00F28195 /* TotalTimeTableViewCell.swift in Sources */,
