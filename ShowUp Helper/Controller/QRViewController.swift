@@ -28,9 +28,7 @@ class QRViewController: UIViewController {
     @IBOutlet var dayTimeLbl: UILabel!
     @IBOutlet var backgroundDayTimeLbl: UIView!
     
-    @IBOutlet var weekOfMonthLbl: UILabel!
-    @IBOutlet var dayOfWeek: UILabel!
-    @IBOutlet var month: UILabel!
+    @IBOutlet var monthWeekDayLbl: UILabel!
     
     let imagePicker = UIImagePickerController()
     
@@ -89,11 +87,10 @@ class QRViewController: UIViewController {
         self.backgroundCheckButton.dropShadow()
         self.backgroundTimeLbl.dropShadow()
         self.backgroundDayTimeLbl.dropShadow()
-        /*
-        slf.weekOfMonthLbl.text = "Week \(NSDate().weekOfMonth)"
-        self.dayOfWeek.text = "\(NSDate().dayOfWeek)"
-        self.month.text = "\(NSDate().month)"
-        */
+        
+        
+        self.monthWeekDayLbl.text = "\(NSDate().month) • Week \(NSDate().weekOfMonth.formatTwoCases()) • \(NSDate().dayOfWeek)"
+        
         let selectImageGesture = UITapGestureRecognizer(target: self, action: #selector(self.selectImage))
         
         self.qrCodeImageView.image = UserDefaults().retriveQRCode()

@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -145,6 +145,7 @@
                         <outlet property="checkButton" destination="H4E-6T-CtE" id="oLh-gB-2yx"/>
                         <outlet property="dayTimeLbl" destination="Azi-2F-x6U" id="gdU-sr-cSD"/>
                         <outlet property="elapsedTimeLbl" destination="HK9-tz-fZ1" id="Dzg-x3-Sbf"/>
+                        <outlet property="monthWeekDayLbl" destination="eux-Pm-doU" id="2nU-2g-N8r"/>
                         <outlet property="qrCodeImageView" destination="0cd-a8-MED" id="daX-k7-4oL"/>
                     </connections>
                 </viewController>
@@ -458,7 +459,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="amountLabel" destination="OXn-GF-kwt" id="ux2-yi-DmA"/>
+                                            <outlet property="enteredEmoji" destination="QDw-ze-l5k" id="3a9-5M-vbV"/>
                                             <outlet property="enteredLabel" destination="jMj-aB-2bM" id="ra8-eO-eMw"/>
+                                            <outlet property="exitedEmojji" destination="BP9-PC-bGe" id="CBV-6J-VL5"/>
                                             <outlet property="exitedLabel" destination="SwV-zb-gnU" id="Ei6-ft-g7R"/>
                                         </connections>
                                     </tableViewCell>

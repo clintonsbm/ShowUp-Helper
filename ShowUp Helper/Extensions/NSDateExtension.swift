@@ -44,8 +44,10 @@ extension NSDate {
     var dayOfWeek: String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
+        dateFormatter.calendar = Calendar.current
         
-        return dateFormatter.weekdaySymbols[Calendar.current.component(.weekday, from: self as Date)]
+        //For some reason we have to subtract one day from the weekday
+        return dateFormatter.weekdaySymbols[Calendar.current.component(.weekday, from: self as Date) - 1]
     }
     
     var weekOfMonth: Int {
@@ -78,7 +80,6 @@ extension NSDate {
     }
     
     var startOfWeek: Int {
-        
         let inputDate = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self as Date)) as! NSDate
         
         return inputDate.day

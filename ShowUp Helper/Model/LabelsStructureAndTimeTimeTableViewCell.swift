@@ -14,19 +14,24 @@ class LabelsStructureAndTimeTimeTableViewCell: UITableViewCell {
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var exitedLabel: UILabel!
     
+    @IBOutlet var enteredEmoji: UILabel!
+    @IBOutlet var exitedEmojji: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func set(entered: NSDate, exited: NSDate) {
-        
-        var emoji: String = ""
+        if entered.hour >= 13 {
+            self.enteredEmoji.text = "🌗"
+        } else {
+            self.enteredEmoji.text = "☀️"
+        }
         
         if exited.hour >= 13 {
-            emoji = "🌗"
+            self.exitedEmojji.text = "🌗"
         } else {
-            emoji = "☀️"
+            self.exitedEmojji.text = "☀️"
         }
         
         self.enteredLabel.text = "\(entered.hour.formatTwoCases()):\(entered.minute.formatTwoCases())"
