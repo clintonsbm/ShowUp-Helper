@@ -138,15 +138,13 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let weekKey = self.baseDate.weekOfMonth
+                if let keyOfDay = self.numberOfDayKey(week: weekKey, row: section) {
+                    if let count = self.dictionaryOfChecks[weekKey]?[keyOfDay]?.count {
         
-//        if let week = self.dictionaryOfChecks[self.baseDate.weekOfMonth] {
-            if let weekKey = self.numberOfDayKey(week: self.baseDate.weekOfMonth, row: section) {
-                if let count = self.dictionaryOfChecks[weekKey]?.count {
-                    //Number of checks in a day plus the 3 ones of structure (dayOfWeek, totalTime)
-                    return count + 2
+                        return count + 1
+                    }
                 }
-            }
-//        }
         
         return 0
     }
@@ -157,7 +155,9 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             
             if let keyOfDay = self.numberOfDayKey(week: keyOfWeek, row: indexPath.section) {
                 
-                let firstDate = self.dictionaryOfChecks[keyOfWeek]![keyOfDay]?.first?.value(forKey: self.checksController.checkInKey) as! NSDate
+//                let firstDate = self.dictionaryOfChecks[keyOfWeek]![keyOfDay]?.first?.value(forKey: self.checksController.checkInKey) as! NSDate
+                
+//                print("section: \(indexPath.section)  Row: \(indexPath.row)  weekCount: \(self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?.count)  kSection: \(keyOfWeek)  kDay: \(keyOfDay)")
                 
 //                if indexPath.row == 0 {
 //                    //Second cell - day of week
@@ -179,6 +179,20 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                     
                     return cell
+                } else {
+                    //                    print(indexPath.row)
+                    //                    print(referenceRow)
+                    
+                    let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.labelsStructureAndTime.rawValue)! as! LabelsStructureAndTimeTimeTableViewCell
+                    
+                    //                    let referenceRow = self.dictionaryOfChecks[keyOfWeek]![keyOfDay]!.count - 1  //Minus 1 rows in structure, the last one is not considered
+                    
+                    let checkInDate = self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?[indexPath.row].value(forKey: self.checksController.checkInKey) as! NSDate
+                    let checkOutDate = self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?[indexPath.row].value(forKey: self.checksController.checkOutKey) as! NSDate
+                    
+                    cell.set(entered: checkInDate, exited: checkOutDate)
+                    
+                    return cell
                 }
 //                else if indexPath.row == (self.dictionaryOfChecks[keyOfWeek]?.count)! + 2 {
 //                    let cell = tableView.dequeueReusableCell(withIdentifier: MonthResumeCell.identifier)!
@@ -192,21 +206,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
 //
 //                    return cell
 //                }
-                    else {
-//                    print(indexPath.row)
-//                    print(referenceRow)
-                    
-                    let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.labelsStructureAndTime.rawValue)! as! LabelsStructureAndTimeTimeTableViewCell
-                    
-//                    let referenceRow = self.dictionaryOfChecks[keyOfWeek]![keyOfDay]!.count - 1  //Minus 1 rows in structure, the last one is not considered
-                    
-                    let checkInDate = self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?[indexPath.row].value(forKey: self.checksController.checkInKey) as! NSDate
-                    let checkOutDate = self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?[indexPath.row].value(forKey: self.checksController.checkOutKey) as! NSDate
-                    
-                    cell.set(entered: checkInDate, exited: checkOutDate)
-                    
-                    return cell
-                }
+                
             }
 //        }
         
