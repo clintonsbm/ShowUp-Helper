@@ -11,20 +11,25 @@ import CoreData
 
 class HistoryViewController: UIViewController {
 
+    @IBOutlet var weekView: CheckInOutRange!
+    @IBOutlet var tabbleView: UITableView!
+    @IBOutlet var upButton: UIBarButtonItem!
+    @IBOutlet var downButton: UIBarButtonItem!
+    
     let checksController = ChecksController()
     
     var baseDate = NSDate()
     
     var dictionaryOfChecks: [Int : [Int : [NSManagedObject]]] = [:]
     
-    @IBOutlet var tabbleView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabbleView.register(UINib(nibName: "CheckInOutRangeViewXib", bundle: nil), forHeaderFooterViewReuseIdentifier: CheckInOutRangeHeader.identifier)
+        self.setupView()
         
-        self.tabbleView.register(UINib(nibName: "MonthResumeXib", bundle: nil), forCellReuseIdentifier: MonthResumeCell.identifier)
+//        self.tabbleView.register(UINib(nibName: "CheckInOutRangeViewXib", bundle: nil), forHeaderFooterViewReuseIdentifier: CheckInOutRangeHeader.identifier)
+//
+//        self.tabbleView.register(UINib(nibName: "MonthResumeXib", bundle: nil), forCellReuseIdentifier: MonthResumeCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +39,19 @@ class HistoryViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func setupView() {
+        self.weekView.set(firstEntered: self.baseDate)
+        self.navigationController?.title = self.baseDate.month
+        
+        upButton.customView?.layer.cornerRadius = 5
+        upButton.customView?.layer.borderWidth = 1
+        upButton.customView?.layer.borderColor = UIColor.black.cgColor
+        
+        downButton.customView?.layer.cornerRadius = 5
+        downButton.customView?.layer.borderWidth = 1
+        downButton.customView?.layer.borderColor = UIColor.black.cgColor
     }
     
     func formatDatabaseFor(date: NSDate) -> [Int : [Int : [NSManagedObject]]] {
@@ -69,7 +87,7 @@ class HistoryViewController: UIViewController {
             for day in (0...6) {
                 
                 let filteredChecks = week.value.filter({ (check) -> Bool in
-                    (check.value(forKey: self.checksController.checkInKey) as! NSDate).day == day
+                    (check.value(forKey: self.checksController.checkInKey) as! NSDate).dayInWeek == day
                 })
                 
                 if filteredChecks.count != 0 {
@@ -155,7 +173,9 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             
             if let keyOfDay = self.numberOfDayKey(week: keyOfWeek, row: indexPath.section) {
                 
-//                let firstDate = self.dictionaryOfChecks[keyOfWeek]![keyOfDay]?.first?.value(forKey: self.checksController.checkInKey) as! NSDate
+//                if let firstDate = self.dictionaryOfChecks[keyOfWeek]![keyOfDay]?.first?.value(forKey: self.checksController.checkInKey) as? NSDate {
+//                    self.weekView.set(firstEntered: firstDate)
+//                }
                 
 //                print("section: \(indexPath.section)  Row: \(indexPath.row)  weekCount: \(self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?.count)  kSection: \(keyOfWeek)  kDay: \(keyOfDay)")
                 

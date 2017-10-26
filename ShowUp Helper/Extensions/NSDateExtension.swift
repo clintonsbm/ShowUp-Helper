@@ -34,7 +34,15 @@ extension NSDate {
     }
     
     var day: Int {
-
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd"
+        dateFormatter.timeZone = TimeZone.current
+        
+        return Int(dateFormatter.string(from: self as Date))!
+    }
+    
+    var dayInWeek: Int {
+        ///Day of week from 0 to 6 (sunday to saturday)
         return Calendar.current.component(.weekday, from: self as Date) - 1
     }
     
@@ -77,7 +85,7 @@ extension NSDate {
     }
     
     var startOfWeek: Int {
-        let inputDate = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self as Date)) as! NSDate
+        let inputDate = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self as! Date))! as NSDate
         
         return inputDate.day
     }
