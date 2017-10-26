@@ -34,11 +34,8 @@ extension NSDate {
     }
     
     var day: Int {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd"
-        dateFormatter.timeZone = TimeZone.current
-        
-        return Int(dateFormatter.string(from: self as Date))!
+
+        return Calendar.current.component(.weekday, from: self as Date) - 1
     }
     
     var dayOfWeek: String {

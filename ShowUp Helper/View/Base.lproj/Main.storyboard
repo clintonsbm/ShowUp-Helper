@@ -288,6 +288,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3o4-mj-ppp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="9vN-hI-8er">
                                                     <rect key="frame" x="18" y="53" width="284" height="21"/>
                                                     <subviews>
@@ -361,13 +365,17 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="3o4-mj-ppp" firstAttribute="width" secondItem="WoM-gh-qPu" secondAttribute="width" id="3bj-WN-xVL"/>
                                                 <constraint firstItem="x54-bL-3XY" firstAttribute="top" secondItem="WoM-gh-qPu" secondAttribute="top" constant="12" id="74g-Eb-cin"/>
                                                 <constraint firstItem="9vN-hI-8er" firstAttribute="leading" secondItem="WoM-gh-qPu" secondAttribute="leading" constant="18" id="75H-81-2ZB"/>
                                                 <constraint firstAttribute="trailing" secondItem="9vN-hI-8er" secondAttribute="trailing" constant="18" id="ABw-rJ-HzX"/>
+                                                <constraint firstItem="3o4-mj-ppp" firstAttribute="height" secondItem="WoM-gh-qPu" secondAttribute="height" id="Dos-bM-iVT"/>
+                                                <constraint firstItem="3o4-mj-ppp" firstAttribute="centerY" secondItem="WoM-gh-qPu" secondAttribute="centerY" id="Fou-2o-G7u"/>
                                                 <constraint firstItem="x54-bL-3XY" firstAttribute="leading" secondItem="WoM-gh-qPu" secondAttribute="leadingMargin" id="JnM-Wc-0rZ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="x54-bL-3XY" secondAttribute="trailing" id="nM6-Sq-HDP"/>
                                                 <constraint firstAttribute="bottom" secondItem="9vN-hI-8er" secondAttribute="bottom" id="tu6-CU-lvZ"/>
                                                 <constraint firstItem="9vN-hI-8er" firstAttribute="top" secondItem="x54-bL-3XY" secondAttribute="bottom" constant="12" id="wpV-Aw-UCf"/>
+                                                <constraint firstItem="3o4-mj-ppp" firstAttribute="centerX" secondItem="WoM-gh-qPu" secondAttribute="centerX" id="xgb-Kx-dCW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
