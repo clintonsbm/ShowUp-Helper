@@ -612,21 +612,9 @@
                             </button>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem style="plain" id="ATo-RG-R3J">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="deo-TM-QSk">
-                                    <rect key="frame" x="274" y="7" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="Ht1-4j-AcV"/>
-                                    </constraints>
-                                    <state key="normal" title="D">
-                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                </button>
-                            </barButtonItem>
                             <barButtonItem style="plain" id="B0c-S8-O2g">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="paS-XP-CQc">
-                                    <rect key="frame" x="236" y="7" width="30" height="30"/>
+                                    <rect key="frame" x="274" y="7" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="30" id="qfL-9d-4yC"/>
@@ -634,12 +622,30 @@
                                     <state key="normal" title="U">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="upWeek:" destination="9qs-Fb-YHU" eventType="touchUpInside" id="eiQ-8v-DT7"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="ATo-RG-R3J">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="deo-TM-QSk">
+                                    <rect key="frame" x="236" y="7" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="Ht1-4j-AcV"/>
+                                    </constraints>
+                                    <state key="normal" title="D">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="downWeek:" destination="9qs-Fb-YHU" eventType="touchUpInside" id="p45-gJ-eop"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="downButton" destination="ATo-RG-R3J" id="Xj5-EX-tjS"/>
+                        <outlet property="downButton" destination="ATo-RG-R3J" id="why-rd-VEc"/>
                         <outlet property="tabbleView" destination="i9u-RB-zHl" id="JxB-cA-RFO"/>
                         <outlet property="upButton" destination="B0c-S8-O2g" id="FRc-zo-J9A"/>
                         <outlet property="weekView" destination="HVc-bw-lDC" id="M6d-O6-Lu4"/>

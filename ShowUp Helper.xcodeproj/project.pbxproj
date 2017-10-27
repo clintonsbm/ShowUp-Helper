@@ -16,6 +16,7 @@
 		BB31ABEE1F964F9F00F28195 /* TotalTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB31ABED1F964F9F00F28195 /* TotalTimeTableViewCell.swift */; };
 		BB31ABF11F969EB800F28195 /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB31ABF01F969EB800F28195 /* CellIdentifier.swift */; };
 		BB72F4021FA292BC00232452 /* CheckInOutRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB72F4011FA292BC00232452 /* CheckInOutRange.swift */; };
+		BB72F4041FA36A1E00232452 /* BaseDateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB72F4031FA36A1E00232452 /* BaseDateHandler.swift */; };
 		BB7B03AF1F852E5E0062D719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03AE1F852E5E0062D719 /* AppDelegate.swift */; };
 		BB7B03B41F852E5E0062D719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB7B03B21F852E5E0062D719 /* Main.storyboard */; };
 		BB7B03B71F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03B51F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld */; };
@@ -61,6 +62,7 @@
 		BB31ABED1F964F9F00F28195 /* TotalTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTimeTableViewCell.swift; sourceTree = "<group>"; };
 		BB31ABF01F969EB800F28195 /* CellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
 		BB72F4011FA292BC00232452 /* CheckInOutRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInOutRange.swift; sourceTree = "<group>"; };
+		BB72F4031FA36A1E00232452 /* BaseDateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDateHandler.swift; sourceTree = "<group>"; };
 		BB7B03AB1F852E5E0062D719 /* ShowUp Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShowUp Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7B03AE1F852E5E0062D719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB7B03B31F852E5E0062D719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				BB7B03E11F852EAA0062D719 /* QRViewController.swift */,
 				BB9D03CD1F87BC1C004515BF /* ChecksController.swift */,
 				BB31ABE31F8D6CB000F28195 /* HistoryViewController.swift */,
+				BB72F4031FA36A1E00232452 /* BaseDateHandler.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				BB7B03E21F852EAA0062D719 /* QRViewController.swift in Sources */,
 				BBAC7F301F99501400DD4356 /* MonthResumeCell.swift in Sources */,
 				BB31ABEE1F964F9F00F28195 /* TotalTimeTableViewCell.swift in Sources */,
+				BB72F4041FA36A1E00232452 /* BaseDateHandler.swift in Sources */,
 				BB31ABE41F8D6CB000F28195 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -43,7 +43,7 @@ class HistoryViewController: UIViewController {
     
     func setupView() {
         self.weekView.set(firstEntered: self.baseDate)
-        self.navigationController?.title = self.baseDate.month
+        self.title = self.baseDate.month
         
         upButton.customView?.layer.cornerRadius = 5
         upButton.customView?.layer.borderWidth = 1
@@ -75,7 +75,7 @@ class HistoryViewController: UIViewController {
             }
         
             for key in weekDictionary {
-                for check in key.value {
+                for _ in key.value {
 //                    print("\(String(describing: check.value(forKey: self.checksController.checkInKey)))  -  \(String(describing: check.value(forKey: self.checksController.checkOutKey)))")
                 }
             }
@@ -142,6 +142,36 @@ class HistoryViewController: UIViewController {
         return nil
     }
     
+    @IBAction func upWeek(_ sender: UIButton) {
+        
+        if let newDate = BaseDateHandler.addWeekIn(date: self.baseDate) {
+//            print("base: \(self.baseDate) || new: \(newDate)")
+            self.baseDate = newDate
+            
+            self.tabbleView.reloadData()
+            self.weekView.set(firstEntered: self.baseDate)
+            self.title = self.baseDate.month
+            
+            self.dictionaryOfChecks = self.formatDatabaseFor(date: self.baseDate)
+        }
+
+        
+    }
+    
+    @IBAction func downWeek(_ sender: UIButton) {
+        
+        if let newDate = BaseDateHandler.removeWeekIn(date: self.baseDate) {
+//            print("base: \(self.baseDate) || new: \(newDate)")
+            self.baseDate = newDate
+            
+            self.tabbleView.reloadData()
+            self.weekView.set(firstEntered: self.baseDate)
+            self.title = self.baseDate.month
+            
+            self.dictionaryOfChecks = self.formatDatabaseFor(date: self.baseDate)
+        }
+        
+    }
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -157,12 +187,12 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let weekKey = self.baseDate.weekOfMonth
-                if let keyOfDay = self.numberOfDayKey(week: weekKey, row: section) {
-                    if let count = self.dictionaryOfChecks[weekKey]?[keyOfDay]?.count {
+        if let keyOfDay = self.numberOfDayKey(week: weekKey, row: section) {
+            if let count = self.dictionaryOfChecks[weekKey]?[keyOfDay]?.count {
         
-                        return count + 1
-                    }
-                }
+                return count + 1
+            }
+        }
         
         return 0
     }
@@ -266,7 +296,6 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         return 69
     }
 }
-
 
 
 

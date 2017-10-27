@@ -29,15 +29,16 @@ class CheckInOutRange: UIView {
     
     func set(firstEntered: NSDate) {
         
-        let weekNumber = String(format: "%02d", firstEntered.weekOfMonth)
-        self.week.text = "Week \(weekNumber)"
+        self.week.text = "Week \(firstEntered.weekOfMonth.formatTwoCases())"
         
-        let from = firstEntered.startOfWeek
-        let fromFormated = String(format: "%02d", from)
-        self.fromDay.text = fromFormated
+        self.fromDay.text = firstEntered.startOfWeek.formatTwoCases()
         
-        let toFormated = String(format: "%02d", from + 6)
-        self.toDay.text = toFormated
+        var dateComponets = DateComponents()
+        dateComponets.day = 6 - (firstEntered.day - firstEntered.startOfWeek)
+        
+        let to = Calendar.current.date(byAdding: dateComponets, to: firstEntered as Date) as NSDate?
+        
+        self.toDay.text = to?.day.formatTwoCases()
     }
 
 }
