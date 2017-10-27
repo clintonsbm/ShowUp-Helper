@@ -15,6 +15,7 @@ class HistoryViewController: UIViewController {
     @IBOutlet var tabbleView: UITableView!
     @IBOutlet var upButton: UIBarButtonItem!
     @IBOutlet var downButton: UIBarButtonItem!
+    @IBOutlet var yearButton: UIBarButtonItem!
     
     let checksController = ChecksController()
     
@@ -29,7 +30,7 @@ class HistoryViewController: UIViewController {
         
 //        self.tabbleView.register(UINib(nibName: "CheckInOutRangeViewXib", bundle: nil), forHeaderFooterViewReuseIdentifier: CheckInOutRangeHeader.identifier)
 //
-//        self.tabbleView.register(UINib(nibName: "MonthResumeXib", bundle: nil), forCellReuseIdentifier: MonthResumeCell.identifier)
+        self.tabbleView.register(UINib(nibName: "WeekResumeCellXib", bundle: nil), forCellReuseIdentifier: WeekResumeCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,19 +40,6 @@ class HistoryViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func setupView() {
-        self.weekView.set(firstEntered: self.baseDate)
-        self.title = self.baseDate.month
-        
-        upButton.customView?.layer.cornerRadius = 5
-        upButton.customView?.layer.borderWidth = 1
-        upButton.customView?.layer.borderColor = UIColor.black.cgColor
-        
-        downButton.customView?.layer.cornerRadius = 5
-        downButton.customView?.layer.borderWidth = 1
-        downButton.customView?.layer.borderColor = UIColor.black.cgColor
     }
     
     func formatDatabaseFor(date: NSDate) -> [Int : [Int : [NSManagedObject]]] {
@@ -148,11 +136,11 @@ class HistoryViewController: UIViewController {
 //            print("base: \(self.baseDate) || new: \(newDate)")
             self.baseDate = newDate
             
-            self.tabbleView.reloadData()
-            self.weekView.set(firstEntered: self.baseDate)
-            self.title = self.baseDate.month
+            self.updateFixedDateLabels()
             
             self.dictionaryOfChecks = self.formatDatabaseFor(date: self.baseDate)
+            
+            self.tabbleView.reloadData()
         }
 
         
@@ -164,13 +152,39 @@ class HistoryViewController: UIViewController {
 //            print("base: \(self.baseDate) || new: \(newDate)")
             self.baseDate = newDate
             
-            self.tabbleView.reloadData()
-            self.weekView.set(firstEntered: self.baseDate)
-            self.title = self.baseDate.month
+            self.updateFixedDateLabels()
             
             self.dictionaryOfChecks = self.formatDatabaseFor(date: self.baseDate)
+            
+            self.tabbleView.reloadData()
         }
         
+    }
+    
+    @IBAction func customDateSelect(_ sender: UIButton) {
+        
+    }
+    
+    func updateFixedDateLabels() {
+        self.weekView.set(firstEntered: self.baseDate)
+        self.title = self.baseDate.month
+        self.yearButton.title = self.baseDate.year
+    }
+    
+    func setupView() {
+        self.updateFixedDateLabels()
+        
+//        self.upButton.customView?.layer.cornerRadius = 5
+//        self.upButton.customView?.layer.borderWidth = 1
+//        self.upButton.customView?.layer.borderColor = UIColor.black.cgColor
+//        
+//        self.downButton.customView?.layer.cornerRadius = 5
+//        self.downButton.customView?.layer.borderWidth = 1
+//        self.downButton.customView?.layer.borderColor = UIColor.black.cgColor
+        
+        self.yearButton.customView?.layer.cornerRadius = 5
+        self.yearButton.customView?.layer.borderWidth = 1
+        self.yearButton.customView?.layer.borderColor = UIColor.black.cgColor
     }
 }
 
@@ -189,7 +203,10 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         let weekKey = self.baseDate.weekOfMonth
         if let keyOfDay = self.numberOfDayKey(week: weekKey, row: section) {
             if let count = self.dictionaryOfChecks[weekKey]?[keyOfDay]?.count {
-        
+                if section == (self.dictionaryOfChecks[self.baseDate.weekOfMonth]?.keys.count)! - 1 {
+                    return count + 2
+                }
+                
                 return count + 1
             }
         }
@@ -229,6 +246,20 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                     
                     return cell
+                } else if (indexPath.section == (self.dictionaryOfChecks[self.baseDate.weekOfMonth]?.keys.count)! - 1) && (indexPath.row == (self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?.count)! + 1) {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: WeekResumeCell.identifier) as! WeekResumeCell
+                    
+                    var arrayOfWeekChecks: [NSManagedObject] = []
+                    
+                    for day in self.dictionaryOfChecks[keyOfWeek]! {
+                        for check in day.value {
+                            arrayOfWeekChecks.append(check)
+                        }
+                    }
+                    
+                    cell.set(weekChecks: arrayOfWeekChecks)
+                    
+                    return cell
                 } else {
                     //                    print(indexPath.row)
                     //                    print(referenceRow)
@@ -244,6 +275,8 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                     
                     return cell
                 }
+                
+                
 //                else if indexPath.row == (self.dictionaryOfChecks[keyOfWeek]?.count)! + 2 {
 //                    let cell = tableView.dequeueReusableCell(withIdentifier: MonthResumeCell.identifier)!
 //                    // as! MonthResumeFooter

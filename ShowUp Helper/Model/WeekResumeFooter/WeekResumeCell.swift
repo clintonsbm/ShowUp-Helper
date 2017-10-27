@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MonthResumeCell: UITableViewCell {
+class WeekResumeCell: UITableViewCell {
 
     @IBOutlet var totalTimeMorning: UILabel!
     @IBOutlet var totalTimeAfternoon: UILabel!
@@ -19,7 +19,7 @@ class MonthResumeCell: UITableViewCell {
     @IBOutlet var checkAfternoon: UILabel!
     @IBOutlet var checkTimeWeek: UILabel!
     
-    static let identifier = "MonthResumeXib"
+    static let identifier = "WeekResumeCellXib"
     
     var totalMorning: Double = 0
     var totalAfternoon: Double = 0
@@ -32,7 +32,7 @@ class MonthResumeCell: UITableViewCell {
     }
 
     func set(weekChecks: [NSManagedObject]) {
-        for _ in weekChecks {
+        for check in weekChecks {
             //continuar daqui
             
         }

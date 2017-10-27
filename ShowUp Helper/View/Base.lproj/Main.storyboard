@@ -609,17 +609,17 @@
                                 <state key="normal" title="2017">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="customDateSelect:" destination="9qs-Fb-YHU" eventType="touchUpInside" id="5eb-gM-eqg"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem style="plain" id="B0c-S8-O2g">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="paS-XP-CQc">
-                                    <rect key="frame" x="274" y="7" width="30" height="30"/>
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="paS-XP-CQc">
+                                    <rect key="frame" x="270" y="5" width="34" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="qfL-9d-4yC"/>
-                                    </constraints>
-                                    <state key="normal" title="U">
+                                    <state key="normal" image="UpArrow">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
@@ -628,13 +628,10 @@
                                 </button>
                             </barButtonItem>
                             <barButtonItem style="plain" id="ATo-RG-R3J">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="deo-TM-QSk">
-                                    <rect key="frame" x="236" y="7" width="30" height="30"/>
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="deo-TM-QSk">
+                                    <rect key="frame" x="228" y="5" width="34" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="Ht1-4j-AcV"/>
-                                    </constraints>
-                                    <state key="normal" title="D">
+                                    <state key="normal" image="DownArrow">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
@@ -649,6 +646,7 @@
                         <outlet property="tabbleView" destination="i9u-RB-zHl" id="JxB-cA-RFO"/>
                         <outlet property="upButton" destination="B0c-S8-O2g" id="FRc-zo-J9A"/>
                         <outlet property="weekView" destination="HVc-bw-lDC" id="M6d-O6-Lu4"/>
+                        <outlet property="yearButton" destination="Fyb-9N-YWp" id="PKu-Pr-Fnj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5yS-qS-m5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -676,6 +674,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DownArrow" width="34" height="34"/>
         <image name="History-empty" width="20" height="26"/>
         <image name="History-filled" width="20" height="26"/>
         <image name="Profile-empty" width="30" height="31"/>
@@ -683,5 +682,6 @@
         <image name="QRCode-empty" width="25" height="25"/>
         <image name="QRCode-filled" width="25" height="25"/>
         <image name="Separator" width="304" height="1"/>
+        <image name="UpArrow" width="34" height="34"/>
     </resources>
 </document>
