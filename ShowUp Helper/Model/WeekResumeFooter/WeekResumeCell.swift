@@ -122,7 +122,7 @@ class WeekResumeCell: UITableViewCell {
                     
                     let afternoonShift = Calendar.current.date(from: components)!
                     
-                    if checkIn.hour <= 13 {
+                    if checkIn.hour < 13 {
                         if checkOut.hour < 13 {
                             totalTimeMorning += Int(checkOut.timeIntervalSince(checkIn as Date))
                         } else {
@@ -144,8 +144,18 @@ class WeekResumeCell: UITableViewCell {
             if let checkIn = check.value(forKey: checksController.checkInKey) as? NSDate {
                 if let checkOut = check.value(forKey: checksController.checkOutKey) as? NSDate {
                     
+                    var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: checkOut as Date)
+                    
+                    components.hour = 13
+                    components.minute = 0
+                    components.second = 0
+                    
+                    let afternoonShift = Calendar.current.date(from: components)!
+                    
                     if checkIn.hour >= 13 {
                         totalTimeAfternoon += Int(checkOut.timeIntervalSince(checkIn as Date))
+                    } else if checkOut.hour >= 13 {
+                        totalTimeAfternoon += Int(checkOut.timeIntervalSince(afternoonShift))
                     }
                 }
             }
