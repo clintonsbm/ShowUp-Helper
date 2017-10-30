@@ -117,13 +117,13 @@ extension UserDefaults {
     }
     
     ///Save minimal parameter
-    func saveMinimal(minimalCase: MinimalTime, secTime: Double) {
+    func saveMinimal(minimalCase: MinimalTime, secTime: Int) {
         UserDefaults.standard.set(secTime, forKey: minimalCase.rawValue)
     }
     
     ///Retrive minimal parameter
-    func retrieveMinimal(minimalCase: MinimalTime) -> Double? {
-        if let secTime = UserDefaults.standard.object(forKey: minimalCase.rawValue) as? Double {
+    func retrieveMinimal(minimalCase: MinimalTime) -> Int? {
+        if let secTime = UserDefaults.standard.object(forKey: minimalCase.rawValue) as? Int {
             return secTime
         } else {
             return nil

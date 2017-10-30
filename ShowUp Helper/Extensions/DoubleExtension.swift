@@ -18,12 +18,8 @@ extension Double {
         let minutes = Int(totalTime / 60.0)
         totalTime -= (TimeInterval(minutes) * 60)
         
-        let seconds = totalTime
+        let seconds = Int(totalTime)
         
-        let formatedHours = String(format: "%02d", hours)
-        let formatedMinutes = String(format: "%02d", minutes)
-        let formatedSeconds = String(format: "%02d", seconds)
-        
-        return (h: formatedHours, m: formatedMinutes, s: formatedSeconds)
+        return (h: hours.formatTwoCases(), m: minutes.formatTwoCases(), s: seconds.formatTwoCases())
     }
 }
