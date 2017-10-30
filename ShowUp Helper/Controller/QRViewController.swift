@@ -106,12 +106,7 @@ class QRViewController: UIViewController {
         self.checkButton.setTitle(labelAndColor.label, for: .normal)
         self.backgroundCheckButton.backgroundColor = labelAndColor.color
         
-        // Format time vars with leading zero
-        let strHours = String(format: "%02d", self.totalOfDay.h)
-        let strMinutes = String(format: "%02d", self.totalOfDay.m)
-        let strSeconds = String(format: "%02d", self.totalOfDay.s)
-        
-        self.dayTimeLbl.text = "\(strHours):\(strMinutes):\(strSeconds)"
+        self.dayTimeLbl.text = "\(self.totalOfDay.h.formatTwoCases()):\(self.totalOfDay.m.formatTwoCases()):\(self.totalOfDay.s.formatTwoCases())"
     }
 }
 
@@ -136,23 +131,13 @@ extension QRViewController: UIImagePickerControllerDelegate, UINavigationControl
 extension QRViewController: UpdateLabelsDelegate {
     func updateStopwatch(time: (h: Int, m: Int, s: Int)) {
         
-        // Format time vars with leading zero
-        let strHours = String(format: "%02d", time.h)
-        let strMinutes = String(format: "%02d", time.m)
-        let strSeconds = String(format: "%02d", time.s)
-        
-        self.elapsedTimeLbl.text = "\(strHours):\(strMinutes):\(strSeconds)"
+        self.elapsedTimeLbl.text = "\(time.h.formatTwoCases()):\(time.m.formatTwoCases()):\(time.s.formatTwoCases())"
     }
     
     func stopStopwatch() {
         let totalHoursDay: (h: Int, m: Int, s: Int) = self.checkController.getHoursWorkedToday()
         
-        // Format time vars with leading zero
-        let strHours = String(format: "%02d", totalHoursDay.h)
-        let strMinutes = String(format: "%02d", totalHoursDay.m)
-        let strSeconds = String(format: "%02d", totalHoursDay.s)
-        
-        self.dayTimeLbl.text = "\(strHours):\(strMinutes):\(strSeconds)"
+        self.dayTimeLbl.text = "\(totalHoursDay.h.formatTwoCases()):\(totalHoursDay.m.formatTwoCases()):\(totalHoursDay.s.formatTwoCases())"
     }
 }
 

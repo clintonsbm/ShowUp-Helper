@@ -11,17 +11,14 @@ import CoreData
 
 class TotalTimeTableViewCell: UITableViewCell {
     
-    @IBOutlet var totalTImeLabe: UILabel!
+    @IBOutlet var totalTimeLabe: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func set(managedObjects: [NSManagedObject]) {
@@ -35,7 +32,10 @@ class TotalTimeTableViewCell: UITableViewCell {
         
         let formatedTime: (h: String, m: String, s: String) = totalTime.formatSecToHMS()
         
-        self.totalTImeLabe.text = "\(formatedTime.h):\(formatedTime.m)"
+        if formatedTime.h == "00" && formatedTime.m == "00" {
+            self.totalTimeLabe.text = "\(formatedTime.s) sec"
+        } else {
+            self.totalTimeLabe.text = "\(formatedTime.h):\(formatedTime.m)"
+        }
     }
-
 }

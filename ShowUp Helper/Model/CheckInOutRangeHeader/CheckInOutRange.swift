@@ -21,8 +21,6 @@ class CheckInOutRange: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        self.contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
         self.weekBackgroundView.backgroundColor = UIColor.white
         self.weekBackgroundView.dropShadow()
     }

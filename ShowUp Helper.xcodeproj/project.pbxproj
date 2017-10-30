@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BB0E0AD81F990AD6009565AC /* CheckInOutRangeViewXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB0E0AD71F990AD6009565AC /* CheckInOutRangeViewXib.xib */; };
-		BB0E0ADC1F990D74009565AC /* CheckInOutRangeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0E0ADB1F990D74009565AC /* CheckInOutRangeHeader.swift */; };
 		BB0E0AE21F992C0D009565AC /* CreateTestDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0E0AE11F992C0D009565AC /* CreateTestDatabase.swift */; };
 		BB31ABE41F8D6CB000F28195 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB31ABE31F8D6CB000F28195 /* HistoryViewController.swift */; };
 		BB31ABEA1F964F6900F28195 /* DayOfWeekTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB31ABE91F964F6900F28195 /* DayOfWeekTableViewCell.swift */; };
@@ -31,6 +30,8 @@
 		BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */; };
 		BBAC7F2C1F994FC900DD4356 /* WeekResumeCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */; };
 		BBAC7F301F99501400DD4356 /* WeekResumeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC7F2F1F99501400DD4356 /* WeekResumeCell.swift */; };
+		BBF6BCF61FA7D539008CE455 /* DatePickerXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF6BCF51FA7D539008CE455 /* DatePickerXib.xib */; };
+		BBF6BCF81FA7D5A3008CE455 /* DatePickerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF6BCF71FA7D5A3008CE455 /* DatePickerHolder.swift */; };
 		BBFDB37C1F9A35030069EE78 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFDB37B1F9A35030069EE78 /* DoubleExtension.swift */; };
 		BBFDB37E1F9A3CB10069EE78 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFDB37D1F9A3CB10069EE78 /* IntExtension.swift */; };
 /* End PBXBuildFile section */
@@ -54,7 +55,6 @@
 
 /* Begin PBXFileReference section */
 		BB0E0AD71F990AD6009565AC /* CheckInOutRangeViewXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckInOutRangeViewXib.xib; sourceTree = "<group>"; };
-		BB0E0ADB1F990D74009565AC /* CheckInOutRangeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInOutRangeHeader.swift; sourceTree = "<group>"; };
 		BB0E0AE11F992C0D009565AC /* CreateTestDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTestDatabase.swift; sourceTree = "<group>"; };
 		BB31ABE31F8D6CB000F28195 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BB31ABE91F964F6900F28195 /* DayOfWeekTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekTableViewCell.swift; sourceTree = "<group>"; };
@@ -83,6 +83,8 @@
 		BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekResumeCellXib.xib; sourceTree = "<group>"; };
 		BBAC7F2F1F99501400DD4356 /* WeekResumeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekResumeCell.swift; sourceTree = "<group>"; };
+		BBF6BCF51FA7D539008CE455 /* DatePickerXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerXib.xib; sourceTree = "<group>"; };
+		BBF6BCF71FA7D5A3008CE455 /* DatePickerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerHolder.swift; sourceTree = "<group>"; };
 		BBFDB37B1F9A35030069EE78 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		BBFDB37D1F9A3CB10069EE78 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,10 +182,10 @@
 			children = (
 				BBAC7F2D1F994FD400DD4356 /* CheckInOutRangeHeader */,
 				BBAC7F2E1F994FF000DD4356 /* WeekResumeFooter */,
+				BBF6BCF41FA7D519008CE455 /* DatePicker */,
 				BB31ABE91F964F6900F28195 /* DayOfWeekTableViewCell.swift */,
 				BB31ABEB1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift */,
 				BB31ABED1F964F9F00F28195 /* TotalTimeTableViewCell.swift */,
-				BB72F4011FA292BC00232452 /* CheckInOutRange.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,7 +225,7 @@
 		BBAC7F2D1F994FD400DD4356 /* CheckInOutRangeHeader */ = {
 			isa = PBXGroup;
 			children = (
-				BB0E0ADB1F990D74009565AC /* CheckInOutRangeHeader.swift */,
+				BB72F4011FA292BC00232452 /* CheckInOutRange.swift */,
 				BB0E0AD71F990AD6009565AC /* CheckInOutRangeViewXib.xib */,
 			);
 			path = CheckInOutRangeHeader;
@@ -236,6 +238,15 @@
 				BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */,
 			);
 			path = WeekResumeFooter;
+			sourceTree = "<group>";
+		};
+		BBF6BCF41FA7D519008CE455 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				BBF6BCF71FA7D5A3008CE455 /* DatePickerHolder.swift */,
+				BBF6BCF51FA7D539008CE455 /* DatePickerXib.xib */,
+			);
+			path = DatePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +359,7 @@
 				BB7B03BC1F852E5E0062D719 /* LaunchScreen.storyboard in Resources */,
 				BBAC7F2C1F994FC900DD4356 /* WeekResumeCellXib.xib in Resources */,
 				BB7B03B91F852E5E0062D719 /* Assets.xcassets in Resources */,
+				BBF6BCF61FA7D539008CE455 /* DatePickerXib.xib in Resources */,
 				BB7B03B41F852E5E0062D719 /* Main.storyboard in Resources */,
 				BB0E0AD81F990AD6009565AC /* CheckInOutRangeViewXib.xib in Resources */,
 			);
@@ -386,10 +398,10 @@
 				BBFDB37C1F9A35030069EE78 /* DoubleExtension.swift in Sources */,
 				BB31ABF11F969EB800F28195 /* CellIdentifier.swift in Sources */,
 				BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */,
-				BB0E0ADC1F990D74009565AC /* CheckInOutRangeHeader.swift in Sources */,
 				BBFDB37E1F9A3CB10069EE78 /* IntExtension.swift in Sources */,
 				BB7B03E21F852EAA0062D719 /* QRViewController.swift in Sources */,
 				BBAC7F301F99501400DD4356 /* WeekResumeCell.swift in Sources */,
+				BBF6BCF81FA7D5A3008CE455 /* DatePickerHolder.swift in Sources */,
 				BB31ABEE1F964F9F00F28195 /* TotalTimeTableViewCell.swift in Sources */,
 				BB72F4041FA36A1E00232452 /* BaseDateHandler.swift in Sources */,
 				BB31ABE41F8D6CB000F28195 /* HistoryViewController.swift in Sources */,

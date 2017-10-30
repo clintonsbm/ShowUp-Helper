@@ -28,8 +28,6 @@ class HistoryViewController: UIViewController {
         
         self.setupView()
         
-//        self.tabbleView.register(UINib(nibName: "CheckInOutRangeViewXib", bundle: nil), forHeaderFooterViewReuseIdentifier: CheckInOutRangeHeader.identifier)
-//
         self.tabbleView.register(UINib(nibName: "WeekResumeCellXib", bundle: nil), forCellReuseIdentifier: WeekResumeCell.identifier)
     }
     
@@ -61,12 +59,6 @@ class HistoryViewController: UIViewController {
                     weekDictionary[checkAsDate.weekOfMonth]?.append(check)
                 }
             }
-        
-            for key in weekDictionary {
-                for _ in key.value {
-//                    print("\(String(describing: check.value(forKey: self.checksController.checkInKey)))  -  \(String(describing: check.value(forKey: self.checksController.checkOutKey)))")
-                }
-            }
         }
         
         var weekAndDayDictionary: [Int : [Int : [NSManagedObject]]] = [:]
@@ -90,8 +82,6 @@ class HistoryViewController: UIViewController {
                 }
             }
         }
-        
-//        print(weekAndDayDictionary)
         
         return weekAndDayDictionary
     }
@@ -133,7 +123,6 @@ class HistoryViewController: UIViewController {
     @IBAction func upWeek(_ sender: UIButton) {
         
         if let newDate = BaseDateHandler.addWeekIn(date: self.baseDate) {
-//            print("base: \(self.baseDate) || new: \(newDate)")
             self.baseDate = newDate
             
             self.updateFixedDateLabels()
@@ -142,14 +131,11 @@ class HistoryViewController: UIViewController {
             
             self.tabbleView.reloadData()
         }
-
-        
     }
     
     @IBAction func downWeek(_ sender: UIButton) {
         
         if let newDate = BaseDateHandler.removeWeekIn(date: self.baseDate) {
-//            print("base: \(self.baseDate) || new: \(newDate)")
             self.baseDate = newDate
             
             self.updateFixedDateLabels()
@@ -158,7 +144,6 @@ class HistoryViewController: UIViewController {
             
             self.tabbleView.reloadData()
         }
-        
     }
     
     @IBAction func customDateSelect(_ sender: UIButton) {
@@ -173,14 +158,6 @@ class HistoryViewController: UIViewController {
     
     func setupView() {
         self.updateFixedDateLabels()
-        
-//        self.upButton.customView?.layer.cornerRadius = 5
-//        self.upButton.customView?.layer.borderWidth = 1
-//        self.upButton.customView?.layer.borderColor = UIColor.black.cgColor
-//        
-//        self.downButton.customView?.layer.cornerRadius = 5
-//        self.downButton.customView?.layer.borderWidth = 1
-//        self.downButton.customView?.layer.borderColor = UIColor.black.cgColor
         
         self.yearButton.customView?.layer.cornerRadius = 5
         self.yearButton.customView?.layer.borderWidth = 1
@@ -220,21 +197,6 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             
             if let keyOfDay = self.numberOfDayKey(week: keyOfWeek, row: indexPath.section) {
                 
-//                if let firstDate = self.dictionaryOfChecks[keyOfWeek]![keyOfDay]?.first?.value(forKey: self.checksController.checkInKey) as? NSDate {
-//                    self.weekView.set(firstEntered: firstDate)
-//                }
-                
-//                print("section: \(indexPath.section)  Row: \(indexPath.row)  weekCount: \(self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?.count)  kSection: \(keyOfWeek)  kDay: \(keyOfDay)")
-                
-//                if indexPath.row == 0 {
-//                    //Second cell - day of week
-//
-//                    let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.dayOfWeek.rawValue)! as! DayOfWeekTableViewCell
-//
-//                    cell.set(firstDate: firstDate)
-//
-//                    return cell
-//                } else
                 if indexPath.row == (self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?.count)! {
                     //Last cell - total time
                     
@@ -247,6 +209,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                     
                     return cell
                 } else if (indexPath.section == (self.dictionaryOfChecks[self.baseDate.weekOfMonth]?.keys.count)! - 1) && (indexPath.row == (self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?.count)! + 1) {
+                    
                     let cell = tableView.dequeueReusableCell(withIdentifier: WeekResumeCell.identifier) as! WeekResumeCell
                     
                     var arrayOfWeekChecks: [NSManagedObject] = []
@@ -261,12 +224,8 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                     
                     return cell
                 } else {
-                    //                    print(indexPath.row)
-                    //                    print(referenceRow)
-                    
+                   
                     let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.labelsStructureAndTime.rawValue)! as! LabelsStructureAndTimeTimeTableViewCell
-                    
-                    //                    let referenceRow = self.dictionaryOfChecks[keyOfWeek]![keyOfDay]!.count - 1  //Minus 1 rows in structure, the last one is not considered
                     
                     let checkInDate = self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?[indexPath.row].value(forKey: self.checksController.checkInKey) as! NSDate
                     let checkOutDate = self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?[indexPath.row].value(forKey: self.checksController.checkOutKey) as! NSDate
@@ -275,23 +234,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                     
                     return cell
                 }
-                
-                
-//                else if indexPath.row == (self.dictionaryOfChecks[keyOfWeek]?.count)! + 2 {
-//                    let cell = tableView.dequeueReusableCell(withIdentifier: MonthResumeCell.identifier)!
-//                    // as! MonthResumeFooter
-//
-//                    //        let keyOfSection = self.arrayOfKeys(index: section)
-//
-//                    //        print("Section: \(section) || Week: \(keyOfSection) || First date: \(firstDate)")
-//
-//                    //        cell.set(firstEntered: firstDate)
-//
-//                    return cell
-//                }
-                
             }
-//        }
         
         return UITableViewCell()
     }
@@ -305,10 +248,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 let firstDate = self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?.first?.value(forKey: self.checksController.checkOutKey) as! NSDate
                 
-//                print("Section: \(section) || Week: \(keyOfWeek) || First date: \(firstDate)")
-                
                 cell.set(firstDate: firstDate)
-//                cell.set(firstEntered: firstDate)
                 
                 return cell
             }
