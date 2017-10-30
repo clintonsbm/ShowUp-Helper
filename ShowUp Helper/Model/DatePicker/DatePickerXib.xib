@@ -15,8 +15,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="H4H-e3-l1H">
-                    <rect key="frame" x="0.0" y="44" width="375" height="162"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfc-2z-ALg">
+                    <rect key="frame" x="-0.5" y="0.0" width="375" height="222"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="H4H-e3-l1H">
+                    <rect key="frame" x="0.0" y="44" width="375" height="178"/>
                     <date key="date" timeIntervalSinceReferenceDate="531092850.07442403">
                         <!--2017-10-30 21:47:30 +0000-->
                     </date>
@@ -59,14 +63,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Wfc-2z-ALg" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="0cd-5w-M1q"/>
                 <constraint firstItem="myE-7c-jD5" firstAttribute="centerY" secondItem="qPg-ox-xTQ" secondAttribute="centerY" id="3FT-wj-bEY"/>
                 <constraint firstItem="H4H-e3-l1H" firstAttribute="top" secondItem="qPg-ox-xTQ" secondAttribute="bottom" id="7MX-3u-acB"/>
+                <constraint firstItem="Wfc-2z-ALg" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="9XK-In-heq"/>
                 <constraint firstItem="qPg-ox-xTQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="F5h-Un-sT1"/>
                 <constraint firstItem="qPg-ox-xTQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HpD-v2-JGS"/>
                 <constraint firstItem="myE-7c-jD5" firstAttribute="centerX" secondItem="qPg-ox-xTQ" secondAttribute="centerX" id="Slp-dP-dSK"/>
                 <constraint firstItem="H4H-e3-l1H" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VxC-Ia-ngY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="H4H-e3-l1H" secondAttribute="bottom" id="cth-o5-eVb"/>
+                <constraint firstItem="Wfc-2z-ALg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="gTv-9h-inC"/>
                 <constraint firstItem="qPg-ox-xTQ" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="mPk-WZ-zPh"/>
                 <constraint firstItem="H4H-e3-l1H" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="qha-1M-JLr"/>
+                <constraint firstItem="Wfc-2z-ALg" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="vjz-AC-hQR"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qPg-ox-xTQ" secondAttribute="trailing" id="wIC-Rt-yzX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="H4H-e3-l1H" secondAttribute="trailing" id="xaQ-92-XFc"/>
             </constraints>

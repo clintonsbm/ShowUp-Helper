@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+protocol DateSelectDelegate {
+    func dateSelect(date: Date)
+}
+
 class HistoryViewController: UIViewController {
 
     @IBOutlet var weekView: CheckInOutRange!
@@ -148,6 +152,11 @@ class HistoryViewController: UIViewController {
     
     @IBAction func customDateSelect(_ sender: UIButton) {
         
+        let datePickerView = DatePickerHolder.createPicker()
+        datePickerView.frame.size.width = self.view.frame.width
+        datePickerView.dateSelectDelegate = self
+        
+        self.view.addSubview(datePickerView)
     }
     
     func updateFixedDateLabels() {
@@ -270,7 +279,15 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
+extension HistoryViewController: DateSelectDelegate {
+    func dateSelect(date: Date) {
+        self.baseDate = date as NSDate
+        
+        self.updateFixedDateLabels()
+        self.dictionaryOfChecks = self.formatDatabaseFor(date: self.baseDate)
+        self.tabbleView.reloadData()
+    }
+}
 
 
 
