@@ -13,7 +13,9 @@ class DatePickerHolder: UIView {
 //    static let identifier = "DatePickerXib"
     var dateSelectDelegate: DateSelectDelegate!
     
+    @IBOutlet var containerView: UIView!
     @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var heightConstraint: NSLayoutConstraint!
     
     static func createPicker() -> DatePickerHolder {
         let dateDatePicker = UINib(nibName: "DatePickerXib", bundle: nil)
@@ -23,6 +25,7 @@ class DatePickerHolder: UIView {
     }
     
     @IBAction func cancel(_ sender: UIButton) {
+        self.dateSelectDelegate.cancelDateSelection()
         self.removeFromSuperview()
     }
     

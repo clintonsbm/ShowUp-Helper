@@ -11,6 +11,7 @@ import CoreData
 
 protocol DateSelectDelegate {
     func dateSelect(date: Date)
+    func cancelDateSelection()
 }
 
 class HistoryViewController: UIViewController {
@@ -26,6 +27,9 @@ class HistoryViewController: UIViewController {
     var baseDate = NSDate()
     
     var dictionaryOfChecks: [Int : [Int : [NSManagedObject]]] = [:]
+    
+    var willShowDatePicker = true
+    var datePicker: DatePickerHolder?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,17 +156,65 @@ class HistoryViewController: UIViewController {
     
     @IBAction func customDateSelect(_ sender: UIButton) {
         
-        let datePickerView = DatePickerHolder.createPicker()
-        datePickerView.frame.size.width = self.view.frame.width
-        datePickerView.dateSelectDelegate = self
-        
-        self.view.addSubview(datePickerView)
+        if self.willShowDatePicker {
+            self.fadeInAndAddDatePicker()
+            self.willShowDatePicker = !self.willShowDatePicker
+        } else {
+            self.fadeOutAndAddDatePicker()
+            self.willShowDatePicker = !self.willShowDatePicker
+        }
     }
     
     func updateFixedDateLabels() {
         self.weekView.set(firstEntered: self.baseDate)
         self.title = self.baseDate.month
         self.yearButton.title = self.baseDate.year
+    }
+    
+    func fadeInAndAddDatePicker() {
+        let maskView = UIView(frame: UIScreen.main.bounds)
+        
+        maskView.tag = 190
+        
+        maskView.backgroundColor = UIColor.black
+        maskView.alpha = 0.0
+        
+        self.view.addSubview(maskView)
+        
+        let datePickerView = DatePickerHolder.createPicker()
+        
+        
+        self.datePicker = datePickerView
+        
+        datePickerView.dateSelectDelegate = self
+        
+        datePickerView.frame.size.width = self.view.frame.width
+        datePickerView.frame.size.height = 3*self.view.frame.height/7
+        datePickerView.frame.origin.y = 4*self.view.frame.height/7
+        datePickerView.alpha = 0
+        
+        self.view.addSubview(datePickerView)
+
+        self.view.needsUpdateConstraints()
+        self.view.updateConstraints()
+        
+        UIView.animate(withDuration: 0.5) {
+            maskView.alpha = 0.4
+            datePickerView.alpha = 1
+        }
+    }
+    
+    func fadeOutAndAddDatePicker() {
+        if let maskView = self.view.viewWithTag(190) {
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                maskView.alpha = 0
+                self.datePicker?.alpha = 0
+            }, completion: { (_) in
+                self.datePicker?.removeFromSuperview()
+                maskView.removeFromSuperview()
+            })
+        }
     }
     
     func setupView() {
@@ -281,11 +333,17 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HistoryViewController: DateSelectDelegate {
     func dateSelect(date: Date) {
+        self.view.fadeOut()
+        
         self.baseDate = date as NSDate
         
         self.updateFixedDateLabels()
         self.dictionaryOfChecks = self.formatDatabaseFor(date: self.baseDate)
         self.tabbleView.reloadData()
+    }
+    
+    func cancelDateSelection() {
+        self.fadeOutAndAddDatePicker()
     }
 }
 

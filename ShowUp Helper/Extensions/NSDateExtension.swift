@@ -60,6 +60,11 @@ extension NSDate {
         return Calendar.current.component(.weekOfMonth, from: self as Date)
     }
     
+    var weekOfYear: Int {
+        
+        return Calendar.current.component(.weekOfYear, from: self as Date)
+    }
+    
     var month: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM"
@@ -85,7 +90,7 @@ extension NSDate {
     }
     
     var startOfWeek: Int {
-        let inputDate = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self as! Date))! as NSDate
+        let inputDate = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self as Date))! as NSDate
         
         return inputDate.day
     }
