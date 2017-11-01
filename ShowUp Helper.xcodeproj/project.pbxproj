@@ -180,9 +180,9 @@
 		BB7B03E71F87B4630062D719 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BBAC7F2D1F994FD400DD4356 /* CheckInOutRangeHeader */,
-				BBAC7F2E1F994FF000DD4356 /* WeekResumeFooter */,
-				BBF6BCF41FA7D519008CE455 /* DatePicker */,
+				BB72F4011FA292BC00232452 /* CheckInOutRange.swift */,
+				BBAC7F2F1F99501400DD4356 /* WeekResumeCell.swift */,
+				BBF6BCF71FA7D5A3008CE455 /* DatePickerHolder.swift */,
 				BB31ABE91F964F6900F28195 /* DayOfWeekTableViewCell.swift */,
 				BB31ABEB1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift */,
 				BB31ABED1F964F9F00F28195 /* TotalTimeTableViewCell.swift */,
@@ -206,6 +206,9 @@
 			children = (
 				BB7B03B21F852E5E0062D719 /* Main.storyboard */,
 				BB7B03BA1F852E5E0062D719 /* LaunchScreen.storyboard */,
+				BB0E0AD71F990AD6009565AC /* CheckInOutRangeViewXib.xib */,
+				BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */,
+				BBF6BCF51FA7D539008CE455 /* DatePickerXib.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,33 +223,6 @@
 				BBFDB37D1F9A3CB10069EE78 /* IntExtension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		BBAC7F2D1F994FD400DD4356 /* CheckInOutRangeHeader */ = {
-			isa = PBXGroup;
-			children = (
-				BB72F4011FA292BC00232452 /* CheckInOutRange.swift */,
-				BB0E0AD71F990AD6009565AC /* CheckInOutRangeViewXib.xib */,
-			);
-			path = CheckInOutRangeHeader;
-			sourceTree = "<group>";
-		};
-		BBAC7F2E1F994FF000DD4356 /* WeekResumeFooter */ = {
-			isa = PBXGroup;
-			children = (
-				BBAC7F2F1F99501400DD4356 /* WeekResumeCell.swift */,
-				BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */,
-			);
-			path = WeekResumeFooter;
-			sourceTree = "<group>";
-		};
-		BBF6BCF41FA7D519008CE455 /* DatePicker */ = {
-			isa = PBXGroup;
-			children = (
-				BBF6BCF71FA7D5A3008CE455 /* DatePickerHolder.swift */,
-				BBF6BCF51FA7D539008CE455 /* DatePickerXib.xib */,
-			);
-			path = DatePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

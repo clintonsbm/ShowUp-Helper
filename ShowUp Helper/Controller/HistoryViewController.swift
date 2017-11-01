@@ -91,9 +91,6 @@ class HistoryViewController: UIViewController {
             }
         }
         
-        print(weekDictionary)
-        print(weekAndDayDictionary)
-        
         return weekAndDayDictionary
     }
     
