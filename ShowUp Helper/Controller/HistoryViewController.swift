@@ -175,49 +175,26 @@ class HistoryViewController: UIViewController {
     }
     
     func fadeInAndAddDatePicker() {
-        let maskView = UIView(frame: UIScreen.main.bounds)
-        
-        maskView.tag = 190
-        
-        maskView.backgroundColor = UIColor.black
-        maskView.alpha = 0.0
-        
-        self.view.addSubview(maskView)
         
         let datePickerView = DatePickerHolder.createPicker()
-        
-        
         self.datePicker = datePickerView
         
         datePickerView.dateSelectDelegate = self
         
         datePickerView.frame.size.width = self.view.frame.width
         datePickerView.frame.size.height = 3*self.view.frame.height/7
-        datePickerView.frame.origin.y = 4*self.view.frame.height/7
-        datePickerView.alpha = 0
+        datePickerView.frame.origin.y = self.view.frame.height
         
         self.view.addSubview(datePickerView)
 
-        self.view.needsUpdateConstraints()
-        self.view.updateConstraints()
+//        self.view.needsUpdateConstraints()
+//        self.view.updateConstraints()
         
-        UIView.animate(withDuration: 0.5) {
-            maskView.alpha = 0.4
-            datePickerView.alpha = 1
-        }
+        self.datePicker?.appearFromBottom(in: self.view)
     }
     
     func fadeOutAndAddDatePicker() {
-        if let maskView = self.view.viewWithTag(190) {
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                maskView.alpha = 0
-                self.datePicker?.alpha = 0
-            }, completion: { (_) in
-                self.datePicker?.removeFromSuperview()
-                maskView.removeFromSuperview()
-            })
-        }
+        self.datePicker?.disappearOnBottom(in: self.view)
     }
     
     func setupView() {
@@ -343,10 +320,14 @@ extension HistoryViewController: DateSelectDelegate {
         self.updateFixedDateLabels()
         self.dictionaryOfChecks = self.formatDatabaseFor(date: self.baseDate)
         self.tabbleView.reloadData()
+        
+        self.willShowDatePicker = !self.willShowDatePicker
     }
     
     func cancelDateSelection() {
         self.fadeOutAndAddDatePicker()
+        
+        self.willShowDatePicker = !self.willShowDatePicker
     }
 }
 

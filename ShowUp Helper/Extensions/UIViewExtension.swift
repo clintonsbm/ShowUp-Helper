@@ -41,4 +41,38 @@ extension UIView {
             })
         }
     }
+    
+    func appearFromBottom(in view: UIView, withTime time: Double = 0.5) {
+        let maskView = UIView(frame: UIScreen.main.bounds)
+        
+        maskView.tag = 190
+        
+        maskView.backgroundColor = UIColor.black
+        maskView.alpha = 0.0
+        
+        view.addSubview(maskView)
+        
+        let moveToY = view.frame.height - self.frame.height
+        
+        view.bringSubview(toFront: self)
+        
+        UIView.animate(withDuration: time, animations: {
+            self.frame.origin.y = moveToY
+            maskView.alpha = 0.4
+        })
+    }
+    
+    func disappearOnBottom(in view: UIView, withTime time: Double = 0.5) {
+        if let maskView = view.viewWithTag(190) {
+            UIView.animate(withDuration: time, animations: {
+                self.frame.origin.y = view.frame.height
+                maskView.alpha = 0
+            }, completion: { (_) in
+                maskView.removeFromSuperview()
+                self.removeFromSuperview()
+            })
+        }
+        
+        
+    }
 }
