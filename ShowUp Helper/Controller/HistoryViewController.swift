@@ -52,7 +52,7 @@ class HistoryViewController: UIViewController {
         
         let arrayOfChecks = self.checksController.getAllChecks(printResults: false)
         
-        let arrayFilteredByMonth = arrayOfChecks.filter { ($0?.value(forKey: self.checksController.checkOutKey) as? NSDate)?.year == date.year && ($0?.value(forKey: self.checksController.checkOutKey) as? NSDate)?.monthInt == date.monthInt } as? [NSManagedObject]
+        let arrayFilteredByMonth = arrayOfChecks.filter { ($0?.value(forKey: self.checksController.checkOutKey) as? NSDate)?.year == date.year /*&& ($0?.value(forKey: self.checksController.checkOutKey) as? NSDate)?.monthInt == date.monthInt */} as? [NSManagedObject]
         
         var weekDictionary: [Int: [NSManagedObject]] = [:]
         if let _ = arrayFilteredByMonth {
@@ -61,10 +61,10 @@ class HistoryViewController: UIViewController {
             
                 let checkAsDate = check.value(forKey: self.checksController.checkOutKey) as! NSDate
                 
-                if weekDictionary[checkAsDate.weekOfMonth] == nil {
-                    weekDictionary[checkAsDate.weekOfMonth] = [check]
+                if weekDictionary[checkAsDate.weekOfYear] == nil {
+                    weekDictionary[checkAsDate.weekOfYear] = [check]
                 } else {
-                    weekDictionary[checkAsDate.weekOfMonth]?.append(check)
+                    weekDictionary[checkAsDate.weekOfYear]?.append(check)
                 }
             }
         }
@@ -90,6 +90,9 @@ class HistoryViewController: UIViewController {
                 }
             }
         }
+        
+        print(weekDictionary)
+        print(weekAndDayDictionary)
         
         return weekAndDayDictionary
     }
@@ -230,7 +233,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        if let week = self.dictionaryOfChecks[self.baseDate.weekOfMonth] {
+        if let week = self.dictionaryOfChecks[self.baseDate.weekOfYear] {
             return week.keys.count
         }
         
@@ -238,10 +241,10 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let weekKey = self.baseDate.weekOfMonth
+        let weekKey = self.baseDate.weekOfYear
         if let keyOfDay = self.numberOfDayKey(week: weekKey, row: section) {
             if let count = self.dictionaryOfChecks[weekKey]?[keyOfDay]?.count {
-                if section == (self.dictionaryOfChecks[self.baseDate.weekOfMonth]?.keys.count)! - 1 {
+                if section == (self.dictionaryOfChecks[self.baseDate.weekOfYear]?.keys.count)! - 1 {
                     return count + 2
                 }
                 
@@ -254,7 +257,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let keyOfWeek = self.baseDate.weekOfMonth
+        let keyOfWeek = self.baseDate.weekOfYear
             
             if let keyOfDay = self.numberOfDayKey(week: keyOfWeek, row: indexPath.section) {
                 
@@ -269,7 +272,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                     
                     return cell
-                } else if (indexPath.section == (self.dictionaryOfChecks[self.baseDate.weekOfMonth]?.keys.count)! - 1) && (indexPath.row == (self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?.count)! + 1) {
+                } else if (indexPath.section == (self.dictionaryOfChecks[self.baseDate.weekOfYear]?.keys.count)! - 1) && (indexPath.row == (self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?.count)! + 1) {
                     
                     let cell = tableView.dequeueReusableCell(withIdentifier: WeekResumeCell.identifier) as! WeekResumeCell
                     
@@ -302,7 +305,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-         let keyOfWeek = self.baseDate.weekOfMonth
+         let keyOfWeek = self.baseDate.weekOfYear
             if let keyOfDay = self.numberOfDayKey(week: keyOfWeek, row: section) {
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.dayOfWeek.rawValue) as! DayOfWeekTableViewCell
