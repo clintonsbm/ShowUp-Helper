@@ -10,7 +10,6 @@ import UIKit
 
 class DatePickerHolder: UIView {
     
-//    static let identifier = "DatePickerXib"
     var dateSelectDelegate: DateSelectDelegate!
     
     @IBOutlet var containerView: UIView!

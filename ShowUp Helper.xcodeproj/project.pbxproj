@@ -25,11 +25,17 @@
 		BB7B03D21F852E5E0062D719 /* ShowUp_HelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03D11F852E5E0062D719 /* ShowUp_HelperUITests.swift */; };
 		BB7B03E21F852EAA0062D719 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03E11F852EAA0062D719 /* QRViewController.swift */; };
 		BB7B03E61F8534240062D719 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03E51F8534240062D719 /* UserDefaultsExtension.swift */; };
+		BB80B05E1FAA601B0092C67A /* EditChecksXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB80B05D1FAA601B0092C67A /* EditChecksXib.xib */; };
 		BB9D03CE1F87BC1C004515BF /* ChecksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03CD1F87BC1C004515BF /* ChecksController.swift */; };
 		BB9D03D01F87D8B0004515BF /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03CF1F87D8B0004515BF /* NSDateExtension.swift */; };
 		BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */; };
 		BBAC7F2C1F994FC900DD4356 /* WeekResumeCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */; };
 		BBAC7F301F99501400DD4356 /* WeekResumeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC7F2F1F99501400DD4356 /* WeekResumeCell.swift */; };
+		BBE55D861FB1E62200EC10A8 /* EditChecksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE55D841FB1E62200EC10A8 /* EditChecksCell.swift */; };
+		BBE55D871FB1E62200EC10A8 /* EditChecksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBE55D851FB1E62200EC10A8 /* EditChecksCell.xib */; };
+		BBE55D891FB1E6D300EC10A8 /* EditChecks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE55D881FB1E6D300EC10A8 /* EditChecks.swift */; };
+		BBE55D8E1FB23DF200EC10A8 /* AddManualCheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE55D8C1FB23DF200EC10A8 /* AddManualCheckTableViewCell.swift */; };
+		BBE55D8F1FB23DF200EC10A8 /* AddManualCheckTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBE55D8D1FB23DF200EC10A8 /* AddManualCheckTableViewCell.xib */; };
 		BBF6BCF61FA7D539008CE455 /* DatePickerXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF6BCF51FA7D539008CE455 /* DatePickerXib.xib */; };
 		BBF6BCF81FA7D5A3008CE455 /* DatePickerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF6BCF71FA7D5A3008CE455 /* DatePickerHolder.swift */; };
 		BBFDB37C1F9A35030069EE78 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFDB37B1F9A35030069EE78 /* DoubleExtension.swift */; };
@@ -78,11 +84,17 @@
 		BB7B03D31F852E5E0062D719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB7B03E11F852EAA0062D719 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		BB7B03E51F8534240062D719 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		BB80B05D1FAA601B0092C67A /* EditChecksXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditChecksXib.xib; sourceTree = "<group>"; };
 		BB9D03CD1F87BC1C004515BF /* ChecksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksController.swift; sourceTree = "<group>"; };
 		BB9D03CF1F87D8B0004515BF /* NSDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekResumeCellXib.xib; sourceTree = "<group>"; };
 		BBAC7F2F1F99501400DD4356 /* WeekResumeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekResumeCell.swift; sourceTree = "<group>"; };
+		BBE55D841FB1E62200EC10A8 /* EditChecksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChecksCell.swift; sourceTree = "<group>"; };
+		BBE55D851FB1E62200EC10A8 /* EditChecksCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditChecksCell.xib; sourceTree = "<group>"; };
+		BBE55D881FB1E6D300EC10A8 /* EditChecks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChecks.swift; sourceTree = "<group>"; };
+		BBE55D8C1FB23DF200EC10A8 /* AddManualCheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddManualCheckTableViewCell.swift; sourceTree = "<group>"; };
+		BBE55D8D1FB23DF200EC10A8 /* AddManualCheckTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddManualCheckTableViewCell.xib; sourceTree = "<group>"; };
 		BBF6BCF51FA7D539008CE455 /* DatePickerXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerXib.xib; sourceTree = "<group>"; };
 		BBF6BCF71FA7D5A3008CE455 /* DatePickerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerHolder.swift; sourceTree = "<group>"; };
 		BBFDB37B1F9A35030069EE78 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
@@ -186,6 +198,7 @@
 				BB31ABE91F964F6900F28195 /* DayOfWeekTableViewCell.swift */,
 				BB31ABEB1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift */,
 				BB31ABED1F964F9F00F28195 /* TotalTimeTableViewCell.swift */,
+				BBE55D831FB1E5CE00EC10A8 /* EditChecksCell */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +222,7 @@
 				BB0E0AD71F990AD6009565AC /* CheckInOutRangeViewXib.xib */,
 				BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */,
 				BBF6BCF51FA7D539008CE455 /* DatePickerXib.xib */,
+				BB80B05F1FAA64B30092C67A /* EditChecks */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +237,26 @@
 				BBFDB37D1F9A3CB10069EE78 /* IntExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BB80B05F1FAA64B30092C67A /* EditChecks */ = {
+			isa = PBXGroup;
+			children = (
+				BB80B05D1FAA601B0092C67A /* EditChecksXib.xib */,
+				BBE55D851FB1E62200EC10A8 /* EditChecksCell.xib */,
+				BBE55D8D1FB23DF200EC10A8 /* AddManualCheckTableViewCell.xib */,
+			);
+			path = EditChecks;
+			sourceTree = "<group>";
+		};
+		BBE55D831FB1E5CE00EC10A8 /* EditChecksCell */ = {
+			isa = PBXGroup;
+			children = (
+				BBE55D881FB1E6D300EC10A8 /* EditChecks.swift */,
+				BBE55D841FB1E62200EC10A8 /* EditChecksCell.swift */,
+				BBE55D8C1FB23DF200EC10A8 /* AddManualCheckTableViewCell.swift */,
+			);
+			path = EditChecksCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,9 +368,12 @@
 			files = (
 				BB7B03BC1F852E5E0062D719 /* LaunchScreen.storyboard in Resources */,
 				BBAC7F2C1F994FC900DD4356 /* WeekResumeCellXib.xib in Resources */,
+				BB80B05E1FAA601B0092C67A /* EditChecksXib.xib in Resources */,
 				BB7B03B91F852E5E0062D719 /* Assets.xcassets in Resources */,
+				BBE55D871FB1E62200EC10A8 /* EditChecksCell.xib in Resources */,
 				BBF6BCF61FA7D539008CE455 /* DatePickerXib.xib in Resources */,
 				BB7B03B41F852E5E0062D719 /* Main.storyboard in Resources */,
+				BBE55D8F1FB23DF200EC10A8 /* AddManualCheckTableViewCell.xib in Resources */,
 				BB0E0AD81F990AD6009565AC /* CheckInOutRangeViewXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,10 +401,12 @@
 			files = (
 				BB7B03E61F8534240062D719 /* UserDefaultsExtension.swift in Sources */,
 				BB9D03D01F87D8B0004515BF /* NSDateExtension.swift in Sources */,
+				BBE55D891FB1E6D300EC10A8 /* EditChecks.swift in Sources */,
 				BB7B03B71F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld in Sources */,
 				BB9D03CE1F87BC1C004515BF /* ChecksController.swift in Sources */,
 				BB7B03AF1F852E5E0062D719 /* AppDelegate.swift in Sources */,
 				BB31ABEA1F964F6900F28195 /* DayOfWeekTableViewCell.swift in Sources */,
+				BBE55D861FB1E62200EC10A8 /* EditChecksCell.swift in Sources */,
 				BB0E0AE21F992C0D009565AC /* CreateTestDatabase.swift in Sources */,
 				BB31ABEC1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift in Sources */,
 				BB72F4021FA292BC00232452 /* CheckInOutRange.swift in Sources */,
@@ -378,6 +417,7 @@
 				BB7B03E21F852EAA0062D719 /* QRViewController.swift in Sources */,
 				BBAC7F301F99501400DD4356 /* WeekResumeCell.swift in Sources */,
 				BBF6BCF81FA7D5A3008CE455 /* DatePickerHolder.swift in Sources */,
+				BBE55D8E1FB23DF200EC10A8 /* AddManualCheckTableViewCell.swift in Sources */,
 				BB31ABEE1F964F9F00F28195 /* TotalTimeTableViewCell.swift in Sources */,
 				BB72F4041FA36A1E00232452 /* BaseDateHandler.swift in Sources */,
 				BB31ABE41F8D6CB000F28195 /* HistoryViewController.swift in Sources */,

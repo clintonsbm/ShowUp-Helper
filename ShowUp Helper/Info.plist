@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>asdhasda</string>
+	<string>Please let us use your camera</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>okoko kok </string>
+	<string>Please let us use your library</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

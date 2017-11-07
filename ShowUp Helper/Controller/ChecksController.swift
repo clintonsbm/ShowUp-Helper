@@ -17,6 +17,9 @@ class ChecksController: NSObject {
     let checkInKey = "checkIn"
     let checkOutKey = "checkOut"
     
+    static let checkInKey = "checkIn"
+    static let checkOutKey = "checkOut"
+    
     var timer: Timer?
     var checkInDate: NSDate?
     
@@ -174,6 +177,30 @@ class ChecksController: NSObject {
                 
                 self.updateLabelsDelegate?.stopStopwatch()
             }
+        }
+    }
+    
+    static func delete(check: NSManagedObject) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        managedContext.delete(check)
+    }
+    
+    static func save() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
     

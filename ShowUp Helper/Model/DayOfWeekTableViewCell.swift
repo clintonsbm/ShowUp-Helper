@@ -15,13 +15,17 @@ class DayOfWeekTableViewCell: UITableViewCell {
     
     @IBOutlet var editButton: UIButton!
     
+    var firstDate: NSDate? = nil
+    
+    var editChecksDelegate: EditChecksDelegate!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.editButton.isEnabled = false
     }
     
     func set(firstDate: NSDate) {
+        self.firstDate = firstDate
+        
         self.dayOfWeek.text = firstDate.dayOfWeek
         
         self.dayNumber.text = "Day: \(firstDate.day.formatTwoCases())"
@@ -31,6 +35,12 @@ class DayOfWeekTableViewCell: UITableViewCell {
         editButton.layer.borderColor = UIColor.black.cgColor
     }
 
+    @IBAction func editChecks(_ sender: UIButton) {
+        if let _ = self.firstDate {
+            self.editChecksDelegate?.callEditView(firstDate: self.firstDate!)
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

@@ -14,6 +14,11 @@ protocol DateSelectDelegate {
     func cancelDateSelection()
 }
 
+protocol EditChecksDelegate {
+    func callEditView(firstDate: NSDate)
+    func updateTableView()
+}
+
 class HistoryViewController: UIViewController {
 
     @IBOutlet var weekView: CheckInOutRange!
@@ -183,9 +188,6 @@ class HistoryViewController: UIViewController {
         datePickerView.frame.origin.y = self.view.frame.height
         
         self.view.addSubview(datePickerView)
-
-//        self.view.needsUpdateConstraints()
-//        self.view.updateConstraints()
         
         self.datePicker?.appearFromBottom(in: self.view)
     }
@@ -287,6 +289,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                 let firstDate = self.dictionaryOfChecks[keyOfWeek]?[keyOfDay]?.first?.value(forKey: self.checksController.checkOutKey) as! NSDate
                 
                 cell.set(firstDate: firstDate)
+                cell.editChecksDelegate = self
                 
                 return cell
             }
@@ -328,6 +331,61 @@ extension HistoryViewController: DateSelectDelegate {
     }
 }
 
+extension HistoryViewController: EditChecksDelegate {
+    func callEditView(firstDate: NSDate) {
+        
+        let keyOfWeek = firstDate.weekOfYear
+        let keyOfDay = firstDate.dayInWeek
+        
+        if let referenceDayChecks = self.dictionaryOfChecks[keyOfWeek]?[keyOfDay] {
+            
+            let editChecksView = EditChecks.createView()
+            
+            editChecksView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 5*self.view.frame.height/7)
+            
+            self.view.addSubview(editChecksView)
+            
+            editChecksView.dayChecks = referenceDayChecks
+            editChecksView.tableView.delegate = editChecksView
+            editChecksView.tableView.dataSource = editChecksView
+            editChecksView.editChecksDelegate = self
+            
+            editChecksView.tableView.reloadData()
+            
+            if let firstCheck = referenceDayChecks.first {
+                if let checkAsDate = firstCheck.value(forKey: ChecksController.checkInKey) as? NSDate {
+                    editChecksView.weekNumber.text = "Week \(checkAsDate.weekOfMonth.formatTwoCases())"
+                    editChecksView.dayLbl.text = checkAsDate.dayOfWeek
+                    
+                    var totalTime: Double = 0
+                    
+                    for check in editChecksView.dayChecks {
+                        totalTime += (check.value(forKey: ChecksController.checkOutKey) as! NSDate).timeIntervalSince(((check.value(forKey: ChecksController.checkInKey) as! NSDate) as Date))
+                    }
+                    
+                    let time: (h: String, m: String, s: String) = totalTime.formatSecToHMS()
+                    
+                    if time.h == "00" && time.m == "00" {
+                        editChecksView.totalDayLbl.text = "\(time.s) sec"
+                    } else {
+                        editChecksView.totalDayLbl.text = "\(time.h):\(time.m)"
+                    }
+                }
+            }
+            
+            editChecksView.tableView.register(UINib(nibName: "EditChecksCell", bundle: nil), forCellReuseIdentifier: EditChecksCell.identifier)
+            editChecksView.tableView.register(UINib(nibName: "AddManualCheckTableViewCell", bundle: nil), forCellReuseIdentifier: AddManualCheckTableViewCell.identifier)
+            
+            editChecksView.appearFromBottom(in: self.view)
+        }
+    }
+    
+    func updateTableView() {
+        self.dictionaryOfChecks = self.formatDatabaseFor(date: self.baseDate)
+        self.updateFixedDateLabels()
+        self.tabbleView.reloadData()
+    }
+}
 
 
 
