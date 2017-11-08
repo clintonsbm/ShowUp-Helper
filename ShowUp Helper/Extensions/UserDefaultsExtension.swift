@@ -42,10 +42,10 @@ extension UserDefaults {
         
         if !self.isWorking() {
             UserDefaults.standard.set(true, forKey: self.isWorkingStr)
-            checkController.checkIn()
+            let _ = checkController.checkIn()
         } else {
             UserDefaults.standard.set(false, forKey: self.isWorkingStr)
-            checkController.checkOut()
+            let _ = checkController.checkOut(with: NSDate(), withCheckIn: nil)
         }
     }
     

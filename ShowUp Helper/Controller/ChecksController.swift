@@ -37,15 +37,16 @@ class ChecksController: NSObject {
         }
     }
     
-    func checkIn() {
-        let date = NSDate()
+    func checkIn(with baseDate: NSDate = NSDate(), willSave save: Bool = true) -> NSManagedObject? {
+        
+        let date = baseDate
         
         self.checkInDate = date
         
         UserDefaults().saveCheckIn(date: date)
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
+            return nil
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -56,17 +57,24 @@ class ChecksController: NSObject {
         
         checkIn.setValue(date, forKeyPath: self.checkInKey)
         
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        if save {
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+            
+            self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            
+            return nil
+        } else {
+            
+            return checkIn
         }
-        
-        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
-    func checkOut() {
-        let date = NSDate()
+    func checkOut(with baseDate: NSDate = NSDate(), withCheckIn checkIn: NSManagedObject?) {
+        let date = baseDate
         
         UserDefaults().saveCheckIn(date: date)
         
@@ -77,23 +85,26 @@ class ChecksController: NSObject {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: self.entityName)
-        
-        do {
-            let allSavedData = try managedContext.fetch(fetchRequest)
-            allSavedData.last?.setValue(date, forKey: self.checkOutKey)
+        if let _ = checkIn {
+            checkIn?.setValue(date, forKey: self.checkOutKey)
+        } else {
+            do {
+                let allSavedData = try managedContext.fetch(fetchRequest)
+                allSavedData.last?.setValue(date, forKey: self.checkOutKey)
+                
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
             
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+            
+            self.timer?.invalidate()
+            self.finalizeTimer()
         }
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-        
-        self.timer?.invalidate()
-        self.finalizeTimer()
     }
     
     func getAllChecks(printResults: Bool) -> [NSManagedObject?] {

@@ -21,6 +21,7 @@ class EditChecksCell: UITableViewCell {
     var editedCheck: NSManagedObject?
     
     var editRequestDelegate: EditRequestDelegate!
+    var editChecksDelegate: EditChecksDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,10 +36,6 @@ class EditChecksCell: UITableViewCell {
         self.checkOutBtn?.layer.borderWidth = 1
         self.checkOutBtn?.layer.borderColor = UIColor(red: 254/255, green: 56/255, blue: 36/255, alpha: 1).cgColor
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     func set(check: NSManagedObject) {
         self.check = check
@@ -48,6 +45,7 @@ class EditChecksCell: UITableViewCell {
                 self.checkInBtn.setTitle("\(checkInAsDate.hour.formatTwoCases()):\(checkInAsDate.minute.formatTwoCases())", for: .normal)
                 self.checkOutBtn.setTitle("\(checkOutAsDate.hour.formatTwoCases()):\(checkOutAsDate.minute.formatTwoCases())", for: .normal)
                 
+                print(check)
                 self.updateAmount(checkIn: checkInAsDate, checkOut: checkOutAsDate)
             }
         }
@@ -56,7 +54,7 @@ class EditChecksCell: UITableViewCell {
     func updateAmount(checkIn: NSDate, checkOut: NSDate) {
         
         let time = checkOut.timeIntervalSince(checkIn as Date).formatSecToHMS()
-        
+        print(time)
         if time.h == "00" && time.m == "00" {
             self.timeIntervalLbl.text = "\(time.s) sec"
         } else {
@@ -66,20 +64,32 @@ class EditChecksCell: UITableViewCell {
     
     @IBAction func editCheckIn(_ sender: UIButton) {
         if let _ = self.check {
-            self.editRequestDelegate.showDatePicker(oldCheck: self.check!, isCheckIn: true)
+            self.editRequestDelegate.showDatePicker(oldCheck: self.check!, isCheckIn: true,type: .checkInDate)
         }
     }
     
     @IBAction func editCheckOut(_ sender: UIButton) {
         if let _ = self.check {
-            self.editRequestDelegate.showDatePicker(oldCheck: self.check!, isCheckIn: false)
+            self.editRequestDelegate.showDatePicker(oldCheck: self.check!, isCheckIn: false, type: .checkOutDate)
         }
     }
     
     @IBAction func deleteCheck(_ sender: UIButton) {
-        if let _ = self.check {
-            self.editRequestDelegate.appendDelete(check: self.check!)
-            self.removeFromSuperview()
+        let alert = UIAlertController(title: "Delete check", message: "Do you really want to delete this check?", preferredStyle: .alert)
+        
+        let delete = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            if let _ = self.check {
+                self.editRequestDelegate.save(check: self.check!)
+                self.removeFromSuperview()
+            }
         }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(delete)
+        alert.addAction(cancel)
+        
+        self.editChecksDelegate.showAlertInController(alert: alert)
+        
     }
 }

@@ -12,9 +12,12 @@ class DatePickerHolder: UIView {
     
     var dateSelectDelegate: DateSelectDelegate!
     
+    @IBOutlet var pickerTitle: UILabel!
     @IBOutlet var containerView: UIView!
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var heightConstraint: NSLayoutConstraint!
+    
+    var type: DateReturnType = DateReturnType.selectCustomDate
     
     static func createPicker() -> DatePickerHolder {
         let dateDatePicker = UINib(nibName: "DatePickerXib", bundle: nil)
@@ -30,6 +33,6 @@ class DatePickerHolder: UIView {
     
     @IBAction func done(_ sender: UIButton) {
         self.removeFromSuperview()
-        self.dateSelectDelegate.dateSelect(date: self.datePicker.date)
+        self.dateSelectDelegate.dateSelect(date: self.datePicker.date, to: self.type)
     }
 }

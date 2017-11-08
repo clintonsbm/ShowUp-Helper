@@ -10,13 +10,14 @@ import UIKit
 import CoreData
 
 protocol DateSelectDelegate {
-    func dateSelect(date: Date)
+    func dateSelect(date: Date, to: DateReturnType)
     func cancelDateSelection()
 }
 
 protocol EditChecksDelegate {
     func callEditView(firstDate: NSDate)
     func updateTableView()
+    func showAlertInController(alert: UIAlertController)
 }
 
 class HistoryViewController: UIViewController {
@@ -312,7 +313,13 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HistoryViewController: DateSelectDelegate {
-    func dateSelect(date: Date) {
+    func cancelDateSelection() {
+        self.fadeOutAndAddDatePicker()
+        
+        self.willShowDatePicker = !self.willShowDatePicker
+    }
+    
+    func dateSelect(date: Date, to: DateReturnType) {
         self.view.fadeOut()
         
         self.baseDate = date as NSDate
@@ -320,12 +327,6 @@ extension HistoryViewController: DateSelectDelegate {
         self.updateFixedDateLabels()
         self.dictionaryOfChecks = self.formatDatabaseFor(date: self.baseDate)
         self.tabbleView.reloadData()
-        
-        self.willShowDatePicker = !self.willShowDatePicker
-    }
-    
-    func cancelDateSelection() {
-        self.fadeOutAndAddDatePicker()
         
         self.willShowDatePicker = !self.willShowDatePicker
     }
@@ -384,6 +385,10 @@ extension HistoryViewController: EditChecksDelegate {
         self.dictionaryOfChecks = self.formatDatabaseFor(date: self.baseDate)
         self.updateFixedDateLabels()
         self.tabbleView.reloadData()
+    }
+    
+    func showAlertInController(alert: UIAlertController) {
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
