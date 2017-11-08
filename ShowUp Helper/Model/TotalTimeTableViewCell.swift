@@ -24,10 +24,10 @@ class TotalTimeTableViewCell: UITableViewCell {
     func set(managedObjects: [NSManagedObject]) {
         let checkController = ChecksController()
         
-        var totalTime: Double = 0
+        var totalTime: Int = 0
         
         for check in managedObjects {
-            totalTime += (check.value(forKey: checkController.checkOutKey) as! NSDate).timeIntervalSince(((check.value(forKey: checkController.checkInKey) as! NSDate) as Date))
+            totalTime += Int((check.value(forKey: checkController.checkOutKey) as! NSDate).timeIntervalSince(((check.value(forKey: checkController.checkInKey) as! NSDate) as Date)))
         }
         
         let formatedTime: (h: String, m: String, s: String) = totalTime.formatSecToHMS()

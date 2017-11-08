@@ -31,6 +31,7 @@
 		BB9D03D41F8BCD82004515BF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */; };
 		BBAC7F2C1F994FC900DD4356 /* WeekResumeCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */; };
 		BBAC7F301F99501400DD4356 /* WeekResumeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC7F2F1F99501400DD4356 /* WeekResumeCell.swift */; };
+		BBB4A5B41FB37E21008C252C /* DateReturnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB4A5B31FB37E21008C252C /* DateReturnType.swift */; };
 		BBE55D861FB1E62200EC10A8 /* EditChecksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE55D841FB1E62200EC10A8 /* EditChecksCell.swift */; };
 		BBE55D871FB1E62200EC10A8 /* EditChecksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBE55D851FB1E62200EC10A8 /* EditChecksCell.xib */; };
 		BBE55D891FB1E6D300EC10A8 /* EditChecks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE55D881FB1E6D300EC10A8 /* EditChecks.swift */; };
@@ -90,6 +91,7 @@
 		BB9D03D31F8BCD82004515BF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekResumeCellXib.xib; sourceTree = "<group>"; };
 		BBAC7F2F1F99501400DD4356 /* WeekResumeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekResumeCell.swift; sourceTree = "<group>"; };
+		BBB4A5B31FB37E21008C252C /* DateReturnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateReturnType.swift; sourceTree = "<group>"; };
 		BBE55D841FB1E62200EC10A8 /* EditChecksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChecksCell.swift; sourceTree = "<group>"; };
 		BBE55D851FB1E62200EC10A8 /* EditChecksCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditChecksCell.xib; sourceTree = "<group>"; };
 		BBE55D881FB1E6D300EC10A8 /* EditChecks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChecks.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				BB31ABF01F969EB800F28195 /* CellIdentifier.swift */,
 				BB0E0AE11F992C0D009565AC /* CreateTestDatabase.swift */,
+				BBB4A5B31FB37E21008C252C /* DateReturnType.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB7B03E61F8534240062D719 /* UserDefaultsExtension.swift in Sources */,
+				BBB4A5B41FB37E21008C252C /* DateReturnType.swift in Sources */,
 				BB9D03D01F87D8B0004515BF /* NSDateExtension.swift in Sources */,
 				BBE55D891FB1E6D300EC10A8 /* EditChecks.swift in Sources */,
 				BB7B03B71F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld in Sources */,

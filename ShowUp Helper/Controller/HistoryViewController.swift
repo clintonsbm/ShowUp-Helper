@@ -357,10 +357,10 @@ extension HistoryViewController: EditChecksDelegate {
                     editChecksView.weekNumber.text = "Week \(checkAsDate.weekOfMonth.formatTwoCases())"
                     editChecksView.dayLbl.text = checkAsDate.dayOfWeek
                     
-                    var totalTime: Double = 0
+                    var totalTime: Int = 0
                     
                     for check in editChecksView.dayChecks {
-                        totalTime += (check.value(forKey: ChecksController.checkOutKey) as! NSDate).timeIntervalSince(((check.value(forKey: ChecksController.checkInKey) as! NSDate) as Date))
+                        totalTime += Int((check.value(forKey: ChecksController.checkOutKey) as! NSDate).timeIntervalSince(((check.value(forKey: ChecksController.checkInKey) as! NSDate) as Date)))
                     }
                     
                     let time: (h: String, m: String, s: String) = totalTime.formatSecToHMS()

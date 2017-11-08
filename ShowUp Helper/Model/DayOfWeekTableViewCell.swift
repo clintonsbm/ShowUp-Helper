@@ -21,6 +21,10 @@ class DayOfWeekTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.editButton.layer.cornerRadius = 5
+        self.editButton.layer.borderWidth = 1
+        self.editButton.layer.borderColor = UIColor.black.cgColor
     }
     
     func set(firstDate: NSDate) {
@@ -29,10 +33,6 @@ class DayOfWeekTableViewCell: UITableViewCell {
         self.dayOfWeek.text = firstDate.dayOfWeek
         
         self.dayNumber.text = "Day: \(firstDate.day.formatTwoCases())"
-        
-        editButton.layer.cornerRadius = 5
-        editButton.layer.borderWidth = 1
-        editButton.layer.borderColor = UIColor.black.cgColor
     }
 
     @IBAction func editChecks(_ sender: UIButton) {

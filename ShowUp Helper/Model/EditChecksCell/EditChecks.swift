@@ -101,6 +101,21 @@ extension EditChecks: UITableViewDelegate, UITableViewDataSource {
 extension EditChecks: EditRequestDelegate {
     func appendDelete(check: NSManagedObject) {
         self.willBeDeleted.append(check)
+        
+        var totalTime: Int = 0
+        for currentCheck in self.dayChecks {
+            if check != currentCheck {
+                totalTime += Int((currentCheck.value(forKey: ChecksController.checkOutKey) as! NSDate).timeIntervalSince(((currentCheck.value(forKey: ChecksController.checkInKey) as! NSDate) as Date)))
+            }
+        }
+        
+        let time: (h: String, m: String, s: String) = totalTime.formatSecToHMS()
+        
+        if time.h == "00" && time.m == "00" {
+            self.totalDayLbl.text = "\(time.s) sec"
+        } else {
+            self.totalDayLbl.text = "\(time.h):\(time.m)"
+        }
     }
     
     func appendSave(check: NSManagedObject) {
