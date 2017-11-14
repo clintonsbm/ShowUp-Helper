@@ -42,9 +42,11 @@ class QRViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.imagePicker.delegate = self
-
+        
         self.checkController.updateLabelsDelegate = self
         self.checkController.syncTimer()
         
@@ -76,8 +78,13 @@ class QRViewController: UIViewController {
             self.backgroundCheckButton.backgroundColor = labelAndColor.color
         } else {
             
-            //Shows alert of blank QRCode
-            print("Unable to check")
+            let alert = UIAlertController(title: "No image", message: "Please, select a image to be able to check in", preferredStyle: .alert)
+            
+            let confirm = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alert.addAction(confirm)
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

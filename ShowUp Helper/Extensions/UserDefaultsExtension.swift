@@ -37,6 +37,10 @@ extension UserDefaults {
         return "emptyStateQRCode"
     }
     
+    private var profileImage: String {
+        return "profileImage"
+    }
+    
     ///Inverts the status of checking. True is Checking In and false is Checking Out.
     func invertCheck(checkController: ChecksController) {
         
@@ -96,14 +100,14 @@ extension UserDefaults {
     }
     
     ///Saves the QRCode image
-    func saveQRImage(image: UIImage){
+    func saveQRImage(image: UIImage) {
         let imageData = UIImagePNGRepresentation(image)
         
         UserDefaults.standard.set(imageData, forKey: self.qrImageStr)
     }
     
     ///Retrieves the QRCode image
-    func retriveQRCode() -> UIImage{
+    func retriveQRCode() -> UIImage {
         
         guard let imageData = UserDefaults.standard.object(forKey: self.qrImageStr) as? Data else {
             return UIImage(named: self.emptyStateQRCode)!
@@ -111,6 +115,27 @@ extension UserDefaults {
         
         guard let image = UIImage(data: imageData) else {
             return UIImage(named: self.emptyStateQRCode)!
+        }
+        
+        return image
+    }
+    
+    ///Saves the profile image
+    func saveProfileImage(image: UIImage) {
+        let imageData = UIImagePNGRepresentation(image)
+        
+        UserDefaults.standard.set(imageData, forKey: self.profileImage)
+    }
+    
+    ///Retrieves the profile image
+    func retriveProfileImage() -> UIImage {
+        
+        guard let imageData = UserDefaults.standard.object(forKey: self.profileImage) as? Data else {
+            return #imageLiteral(resourceName: "emptyStateProfile")
+        }
+        
+        guard let image = UIImage(data: imageData) else {
+            return UIImage(named: self.profileImage)!
         }
         
         return image

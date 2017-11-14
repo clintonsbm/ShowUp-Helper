@@ -32,6 +32,7 @@
 		BBAC7F2C1F994FC900DD4356 /* WeekResumeCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */; };
 		BBAC7F301F99501400DD4356 /* WeekResumeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC7F2F1F99501400DD4356 /* WeekResumeCell.swift */; };
 		BBB4A5B41FB37E21008C252C /* DateReturnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB4A5B31FB37E21008C252C /* DateReturnType.swift */; };
+		BBB4A5B61FB48D0D008C252C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB4A5B51FB48D0D008C252C /* ProfileViewController.swift */; };
 		BBE55D861FB1E62200EC10A8 /* EditChecksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE55D841FB1E62200EC10A8 /* EditChecksCell.swift */; };
 		BBE55D871FB1E62200EC10A8 /* EditChecksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBE55D851FB1E62200EC10A8 /* EditChecksCell.xib */; };
 		BBE55D891FB1E6D300EC10A8 /* EditChecks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE55D881FB1E6D300EC10A8 /* EditChecks.swift */; };
@@ -92,6 +93,7 @@
 		BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekResumeCellXib.xib; sourceTree = "<group>"; };
 		BBAC7F2F1F99501400DD4356 /* WeekResumeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekResumeCell.swift; sourceTree = "<group>"; };
 		BBB4A5B31FB37E21008C252C /* DateReturnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateReturnType.swift; sourceTree = "<group>"; };
+		BBB4A5B51FB48D0D008C252C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BBE55D841FB1E62200EC10A8 /* EditChecksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChecksCell.swift; sourceTree = "<group>"; };
 		BBE55D851FB1E62200EC10A8 /* EditChecksCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditChecksCell.xib; sourceTree = "<group>"; };
 		BBE55D881FB1E6D300EC10A8 /* EditChecks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChecks.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				BB9D03CD1F87BC1C004515BF /* ChecksController.swift */,
 				BB31ABE31F8D6CB000F28195 /* HistoryViewController.swift */,
 				BB72F4031FA36A1E00232452 /* BaseDateHandler.swift */,
+				BBB4A5B51FB48D0D008C252C /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				BBE55D891FB1E6D300EC10A8 /* EditChecks.swift in Sources */,
 				BB7B03B71F852E5E0062D719 /* ShowUp_Helper.xcdatamodeld in Sources */,
 				BB9D03CE1F87BC1C004515BF /* ChecksController.swift in Sources */,
+				BBB4A5B61FB48D0D008C252C /* ProfileViewController.swift in Sources */,
 				BB7B03AF1F852E5E0062D719 /* AppDelegate.swift in Sources */,
 				BB31ABEA1F964F6900F28195 /* DayOfWeekTableViewCell.swift in Sources */,
 				BBE55D861FB1E62200EC10A8 /* EditChecksCell.swift in Sources */,
