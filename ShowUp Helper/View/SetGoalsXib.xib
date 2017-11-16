@@ -80,6 +80,9 @@
                     <state key="normal" title="20 hours">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="totalHoursChange:" destination="BYJ-0z-JHh" eventType="touchUpInside" id="CMm-Wx-HCh"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phM-zx-x6i">
                     <rect key="frame" x="235" y="193" width="128" height="30"/>
@@ -89,6 +92,9 @@
                     <state key="normal" title="12 hours">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="afternoonHoursChange:" destination="BYJ-0z-JHh" eventType="touchUpInside" id="Hz4-6l-sct"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHx-c3-8P9">
                     <rect key="frame" x="235" y="154" width="128" height="30"/>
@@ -98,6 +104,9 @@
                     <state key="normal" title="08 hours">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="morningHoursChange:" destination="BYJ-0z-JHh" eventType="touchUpInside" id="ksn-zC-SrO"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

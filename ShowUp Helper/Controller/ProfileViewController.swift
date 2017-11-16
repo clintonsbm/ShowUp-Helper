@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AlertTextFieldDelegate {
+    func showAlert(with sender: UIButton, and identifier: MinimalTime)
+}
+
 class ProfileViewController: UIViewController {
 
     @IBOutlet var profileImageView: UIImageView!
@@ -19,6 +23,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet var logOutBackView: UIView!
     
     let imagePicker: UIImagePickerController = UIImagePickerController()
+    var setGoalsView: SetGoals?
     
     var isProfileChanging: Bool = true
     var showTextField: Bool = true
@@ -56,15 +61,24 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logOut(_ sender: UIButton) {
-        if sender.titleLabel?.text == "Log in" {
-            self.isProfileChanging = true
-            self.selectImage()
-        } else {
-            UserDefaults().saveProfileImage(image: #imageLiteral(resourceName: "emptyStateProfile"))
-            self.logoutBtn.setTitle("Log in", for: .normal)
-            self.userNameLbl.text = "Doge Noname"
-            self.logoutBtn.backgroundColor = UIColor(red: 68/255, green: 219/255, blue: 94/255, alpha: 1)
-        }
+//        if sender.titleLabel?.text == "Log in" {
+//            self.isProfileChanging = true
+//            self.selectImage()
+//        } else {
+//            UserDefaults().saveProfileImage(image: #imageLiteral(resourceName: "emptyStateProfile"))
+//            self.logoutBtn.setTitle("Log in", for: .normal)
+//            self.userNameLbl.text = "Doge Noname"
+//            self.logoutBtn.backgroundColor = UIColor(red: 68/255, green: 219/255, blue: 94/255, alpha: 1)
+//        }
+        
+        let setGoalsView = SetGoals.createView()
+        self.setGoalsView = setGoalsView
+        
+        setGoalsView.alertTextFieldDelegate = self
+        setGoalsView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 300)
+        
+        self.view.addSubview(setGoalsView)
+        setGoalsView.appearFromBottom(in: self.view)
     }
     
     @IBAction func showEditProfileOptions(_ sender: UIButton) {
@@ -79,6 +93,11 @@ class ProfileViewController: UIViewController {
         let removeProfilePictureAction = UIAlertAction(title: "Remove Profile Picture", style: .destructive) { (_) in
             self.profileImageView.image = #imageLiteral(resourceName: "emptyStateProfile")
             UserDefaults().saveProfileImage(image: #imageLiteral(resourceName: "emptyStateProfile"))
+            self.isProfileChanging = true
+            let selectImageGesture = UITapGestureRecognizer(target: self, action: #selector(self.selectImage))
+            
+            self.profileImageView.isUserInteractionEnabled = true
+            self.profileImageView.addGestureRecognizer(selectImageGesture)
         }
         
         let changeProfileNameAction = UIAlertAction(title: "Change Profile Name", style: .default) { (_) in
@@ -100,21 +119,11 @@ class ProfileViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
-        let setGoals = UIAlertAction(title: "Define Time Goals", style: .default) { (_) in
-            let setGoalsView = SetGoals.createView()
-            
-            setGoalsView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 300)
-            
-            self.view.addSubview(setGoalsView)
-            setGoalsView.appearFromBottom(in: self.view)
-        }
-        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(changeProfilePictureAction)
         alert.addAction(removeProfilePictureAction)
         alert.addAction(changeProfileNameAction)
-        alert.addAction(setGoals)
         alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
@@ -137,15 +146,14 @@ class ProfileViewController: UIViewController {
         
         self.profileImageView.image = UserDefaults().retriveProfileImage()
         
-//        if self.profileImageView.image == #imageLiteral(resourceName: "emptyStateProfile") {
-//            self.isProfileChanging = true
-//            let selectImageGesture = UITapGestureRecognizer(target: self, action: #selector(self.selectImage))
-//
-//            self.profileImageView.isUserInteractionEnabled = true
-//            self.profileImageView.addGestureRecognizer(selectImageGesture)
-//        }
+        if self.profileImageView.image == #imageLiteral(resourceName: "emptyStateProfile") {
+            self.isProfileChanging = true
+            let selectImageGesture = UITapGestureRecognizer(target: self, action: #selector(self.selectImage))
+        
+            self.profileImageView.isUserInteractionEnabled = true
+            self.profileImageView.addGestureRecognizer(selectImageGesture)
+        }
     }
-
 }
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -177,9 +185,10 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                             self.logoutBtn.backgroundColor = UIColor(red: 255/255, green: 38/255, blue: 0/255, alpha: 1)
                         } else {
                             ///Não ta mudando a foto
-                            self.profileImageView.image = #imageLiteral(resourceName: "emptyStateProfile")
+                            self.profileImageView.image = UIImage(named: "emptyStateProfile")
                         }
                     }
+                    
                     alert.addAction(done)
                     
                     self.present(alert, animated: true, completion: nil)
@@ -198,3 +207,74 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         picker.dismiss(animated: true, completion: nil)
     }
 }
+
+
+extension ProfileViewController: AlertTextFieldDelegate {
+    func showAlert(with sender: UIButton, and identifier: MinimalTime) {
+        let alert = UIAlertController(title: "Profile name", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Ex: 8:20"
+        }
+        
+        let save = UIAlertAction(title: "Save", style: .default) { (action) in
+            let textField = alert.textFields?.first!
+            
+            if textField?.text?.count != 0 {
+                let separatedString = textField?.text?.split(separator: ":")
+                
+                if let stringOfTimes = separatedString {
+                    if stringOfTimes.count >= 2 {
+                        let hour = Int(stringOfTimes[0]) ?? 0
+                        let minute = Int(stringOfTimes[1]) ?? 0
+                        
+                        if 59 <= minute {
+                            sender.setTitle("\(hour.formatTwoCases()):\(minute.formatTwoCases()) hours", for: .normal)
+                            
+                            let totalInSeconds = hour*3600 + minute*60
+                            UserDefaults().saveMinimal(minimalCase: identifier, secTime: totalInSeconds)
+                        }
+                    } else if stringOfTimes.count >= 1 {
+                        let hour = Int(stringOfTimes[0]) ?? 0
+                        
+                        sender.setTitle("\(hour.formatTwoCases()) hours", for: .normal)
+                        
+                        let totalInSeconds = hour*3600
+                        UserDefaults().saveMinimal(minimalCase: identifier, secTime: totalInSeconds)
+                    }
+                }
+            }
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(save)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

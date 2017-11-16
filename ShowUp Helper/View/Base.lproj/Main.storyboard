@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0V-uS-Kji">
-                                <rect key="frame" x="12" y="321" width="296" height="50"/>
+                                <rect key="frame" x="12" y="327" width="296" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrCode" translatesAutoresizingMaskIntoConstraints="NO" id="CKd-gG-yPu">
                                         <rect key="frame" x="8" y="10" width="25" height="27"/>
@@ -64,7 +64,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpX-a6-hnI">
-                                <rect key="frame" x="12" y="383" width="296" height="50"/>
+                                <rect key="frame" x="12" y="389" width="296" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKM-qC-Lty">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="50"/>
@@ -87,14 +87,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z39-8b-k3S">
-                                <rect key="frame" x="12" y="457" width="296" height="50"/>
+                                <rect key="frame" x="12" y="451" width="296" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3E-Rd-9MQ">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="50"/>
-                                        <color key="backgroundColor" red="0.26666666666666666" green="0.85882352941176465" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        <state key="normal" title="Log in">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Set Week Goals">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="logOut:" destination="UtQ-zA-LBf" eventType="touchUpInside" id="Bkb-qe-lSr"/>
@@ -114,7 +114,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xh6-Sd-EUt" firstAttribute="leading" secondItem="Yvk-1y-ez1" secondAttribute="leading" constant="70" id="09B-TK-Xsp"/>
-                            <constraint firstItem="Yvk-1y-ez1" firstAttribute="bottom" secondItem="z39-8b-k3S" secondAttribute="bottom" constant="12" id="176-gP-g0y"/>
+                            <constraint firstItem="Yvk-1y-ez1" firstAttribute="bottom" secondItem="z39-8b-k3S" secondAttribute="bottom" constant="18" id="176-gP-g0y"/>
                             <constraint firstItem="vA1-ja-Q23" firstAttribute="leading" secondItem="Yvk-1y-ez1" secondAttribute="leading" constant="26" id="4Qe-vb-tZ6"/>
                             <constraint firstItem="Yvk-1y-ez1" firstAttribute="trailing" secondItem="z39-8b-k3S" secondAttribute="trailing" constant="12" id="5e1-o5-8S0"/>
                             <constraint firstItem="Yvk-1y-ez1" firstAttribute="trailing" secondItem="hpX-a6-hnI" secondAttribute="trailing" constant="12" id="YnW-a3-ve7"/>
@@ -124,7 +124,7 @@
                             <constraint firstItem="z39-8b-k3S" firstAttribute="centerX" secondItem="Yvk-1y-ez1" secondAttribute="centerX" id="daX-9O-9Zy"/>
                             <constraint firstItem="vA1-ja-Q23" firstAttribute="top" secondItem="xh6-Sd-EUt" secondAttribute="bottom" constant="8" id="ebu-Op-qQO"/>
                             <constraint firstItem="z39-8b-k3S" firstAttribute="leading" secondItem="Yvk-1y-ez1" secondAttribute="leading" constant="12" id="gtu-Ue-EUF"/>
-                            <constraint firstItem="z39-8b-k3S" firstAttribute="top" secondItem="hpX-a6-hnI" secondAttribute="bottom" constant="24" id="h63-HG-p8U"/>
+                            <constraint firstItem="z39-8b-k3S" firstAttribute="top" secondItem="hpX-a6-hnI" secondAttribute="bottom" constant="12" id="h63-HG-p8U"/>
                             <constraint firstItem="vA1-ja-Q23" firstAttribute="centerX" secondItem="Yvk-1y-ez1" secondAttribute="centerX" id="htP-8R-dv7"/>
                             <constraint firstItem="N0V-uS-Kji" firstAttribute="centerX" secondItem="Yvk-1y-ez1" secondAttribute="centerX" id="kfI-Gq-5JI"/>
                             <constraint firstItem="hpX-a6-hnI" firstAttribute="centerX" secondItem="Yvk-1y-ez1" secondAttribute="centerX" id="mJL-bi-8am"/>

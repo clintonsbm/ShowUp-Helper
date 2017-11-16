@@ -157,7 +157,7 @@ extension UserDefaults {
             case .week:
                 return 72000
             case .morning:
-                return 432000
+                return 43200
             case .afternoon:
                 return 28800
             }
