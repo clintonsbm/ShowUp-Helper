@@ -227,7 +227,7 @@ extension ProfileViewController: AlertTextFieldDelegate {
                         let hour = Int(stringOfTimes[0]) ?? 0
                         let minute = Int(stringOfTimes[1]) ?? 0
                         
-                        if 59 <= minute {
+                        if 59 >= minute {
                             sender.setTitle("\(hour.formatTwoCases()):\(minute.formatTwoCases()) hours", for: .normal)
                             
                             let totalInSeconds = hour*3600 + minute*60
