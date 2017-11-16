@@ -68,6 +68,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKM-qC-Lty">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <state key="normal" title="Reset Working Hours">
                                             <color key="titleColor" red="0.99607843137254903" green="0.2196078431372549" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -141,10 +142,10 @@
                                 <rect key="frame" x="282" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="editProfile"/>
+                                <connections>
+                                    <action selector="showEditProfileOptions:" destination="UtQ-zA-LBf" eventType="touchUpInside" id="lLJ-MI-EpV"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="showEditProfileOptions:" destination="UtQ-zA-LBf" id="WE4-gY-PLt"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

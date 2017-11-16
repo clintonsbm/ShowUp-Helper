@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
     let imagePicker: UIImagePickerController = UIImagePickerController()
     
     var isProfileChanging: Bool = true
+    var showTextField: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,11 +67,47 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func showEditProfileOptions(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Isso aparece onde?", message: "blah blah", preferredStyle: .actionSheet)
+    @IBAction func showEditProfileOptions(_ sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-//        let changeProfilePicture
-        ///continua daqui
+        let changeProfilePictureAction = UIAlertAction(title: "Change Profile Picture", style: .default) { (_) in
+            self.isProfileChanging = true
+            self.showTextField = false
+            self.selectImage()
+        }
+        
+        let removeProfilePictureAction = UIAlertAction(title: "Remove Profile Picture", style: .destructive) { (_) in
+            self.profileImageView.image = #imageLiteral(resourceName: "emptyStateProfile")
+            UserDefaults().saveProfileImage(image: #imageLiteral(resourceName: "emptyStateProfile"))
+        }
+        
+        let changeProfileNameAction = UIAlertAction(title: "Change Profile Name", style: .default) { (_) in
+            let alert = UIAlertController(title: "Profile name", message: nil, preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.placeholder = "Doge Noname"
+            }
+            
+            let done = UIAlertAction(title: "Done", style: .cancel) { (action) in
+                let textField = alert.textFields?.first!
+                
+                if textField?.text?.count != 0 {
+                    self.userNameLbl.text = textField?.text
+                }
+            }
+            
+            alert.addAction(done)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(changeProfilePictureAction)
+        alert.addAction(removeProfilePictureAction)
+        alert.addAction(changeProfileNameAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func selectImage() {
@@ -112,29 +149,32 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                 
                 UserDefaults().saveProfileImage(image: pickedImage)
                 
-                //Show alert with textfield to get name
-                let alert = UIAlertController(title: "Profile name", message: nil, preferredStyle: .alert)
-                alert.addTextField { (textField) in
-                    textField.placeholder = "Doge Noname"
-                }
-                
-                let done = UIAlertAction(title: "Done", style: .cancel) { (action) in
-                    let textField = alert.textFields?.first!
-                    
-                    if textField?.text?.count != 0 {
-                        self.userNameLbl.text = textField?.text
-                        self.logoutBtn.setTitle("Log out", for: .normal)
-                        self.logoutBtn.backgroundColor = UIColor(red: 255/255, green: 38/255, blue: 0/255, alpha: 1)
-                    } else {
-                        self.profileImageView.image = #imageLiteral(resourceName: "emptyStateProfile")
-                    }
-                }
-                
                 picker.dismiss(animated: true, completion: nil)
                 
-                alert.addAction(done)
-                
-                self.present(alert, animated: true, completion: nil)
+                //Show alert with textfield to get name
+                if self.showTextField {
+                    let alert = UIAlertController(title: "Profile name", message: nil, preferredStyle: .alert)
+                    alert.addTextField { (textField) in
+                        textField.placeholder = "Doge Noname"
+                    }
+                    
+                    let done = UIAlertAction(title: "Done", style: .cancel) { (action) in
+                        let textField = alert.textFields?.first!
+                        
+                        if textField?.text?.count != 0 {
+                            self.userNameLbl.text = textField?.text
+                            self.logoutBtn.setTitle("Log out", for: .normal)
+                            self.logoutBtn.backgroundColor = UIColor(red: 255/255, green: 38/255, blue: 0/255, alpha: 1)
+                        } else {
+                            ///Não ta mudando a foto
+                            self.profileImageView.image = #imageLiteral(resourceName: "emptyStateProfile")
+                        }
+                    }
+                    alert.addAction(done)
+                    
+                    self.present(alert, animated: true, completion: nil)
+                }
+                self.showTextField = true
             } else {
                 
                 UserDefaults().saveQRImage(image: pickedImage)
