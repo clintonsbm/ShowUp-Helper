@@ -20,14 +20,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyStateProfile" translatesAutoresizingMaskIntoConstraints="NO" id="xh6-Sd-EUt">
-                                <rect key="frame" x="70" y="76" width="180" height="180"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyStateProfile" translatesAutoresizingMaskIntoConstraints="NO" id="xh6-Sd-EUt">
+                                <rect key="frame" x="55" y="76" width="210" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xh6-Sd-EUt" secondAttribute="height" multiplier="1:1" id="nV8-dt-HdT"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doge Noname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vA1-ja-Q23">
-                                <rect key="frame" x="26" y="264" width="268" height="24"/>
+                                <rect key="frame" x="26" y="294" width="268" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -113,7 +113,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xh6-Sd-EUt" firstAttribute="leading" secondItem="Yvk-1y-ez1" secondAttribute="leading" constant="70" id="09B-TK-Xsp"/>
+                            <constraint firstItem="xh6-Sd-EUt" firstAttribute="leading" secondItem="Yvk-1y-ez1" secondAttribute="leading" constant="55" id="09B-TK-Xsp"/>
                             <constraint firstItem="Yvk-1y-ez1" firstAttribute="bottom" secondItem="z39-8b-k3S" secondAttribute="bottom" constant="18" id="176-gP-g0y"/>
                             <constraint firstItem="vA1-ja-Q23" firstAttribute="leading" secondItem="Yvk-1y-ez1" secondAttribute="leading" constant="26" id="4Qe-vb-tZ6"/>
                             <constraint firstItem="Yvk-1y-ez1" firstAttribute="trailing" secondItem="z39-8b-k3S" secondAttribute="trailing" constant="12" id="5e1-o5-8S0"/>
@@ -131,7 +131,7 @@
                             <constraint firstItem="N0V-uS-Kji" firstAttribute="leading" secondItem="Yvk-1y-ez1" secondAttribute="leading" constant="12" id="qKr-yh-qc0"/>
                             <constraint firstItem="hpX-a6-hnI" firstAttribute="leading" secondItem="Yvk-1y-ez1" secondAttribute="leading" constant="12" id="sxd-Bo-3gu"/>
                             <constraint firstItem="Yvk-1y-ez1" firstAttribute="trailing" secondItem="N0V-uS-Kji" secondAttribute="trailing" constant="12" id="u0S-sV-qqd"/>
-                            <constraint firstItem="Yvk-1y-ez1" firstAttribute="trailing" secondItem="xh6-Sd-EUt" secondAttribute="trailing" constant="70" id="w2q-HD-Uc2"/>
+                            <constraint firstItem="Yvk-1y-ez1" firstAttribute="trailing" secondItem="xh6-Sd-EUt" secondAttribute="trailing" constant="55" id="w2q-HD-Uc2"/>
                             <constraint firstItem="xh6-Sd-EUt" firstAttribute="top" secondItem="Yvk-1y-ez1" secondAttribute="top" constant="12" id="zyb-W0-0aA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yvk-1y-ez1"/>

@@ -181,11 +181,12 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                         
                         if textField?.text?.count != 0 {
                             self.userNameLbl.text = textField?.text
-                            self.logoutBtn.setTitle("Log out", for: .normal)
-                            self.logoutBtn.backgroundColor = UIColor(red: 255/255, green: 38/255, blue: 0/255, alpha: 1)
+                            
                         } else {
                             ///Não ta mudando a foto
-                            self.profileImageView.image = UIImage(named: "emptyStateProfile")
+                            DispatchQueue.main.async {
+                                self.profileImageView.image = UIImage(named: "emptyStateProfile")
+                            }
                         }
                     }
                     
