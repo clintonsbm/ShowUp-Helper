@@ -14,6 +14,8 @@
 		BB31ABEC1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB31ABEB1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift */; };
 		BB31ABEE1F964F9F00F28195 /* TotalTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB31ABED1F964F9F00F28195 /* TotalTimeTableViewCell.swift */; };
 		BB31ABF11F969EB800F28195 /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB31ABF01F969EB800F28195 /* CellIdentifier.swift */; };
+		BB6864AF1FBDCCC300A178B1 /* SetGoalsXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB6864AE1FBDCCC300A178B1 /* SetGoalsXib.xib */; };
+		BB6864B11FBDCCF700A178B1 /* SetGoals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6864B01FBDCCF700A178B1 /* SetGoals.swift */; };
 		BB72F4021FA292BC00232452 /* CheckInOutRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB72F4011FA292BC00232452 /* CheckInOutRange.swift */; };
 		BB72F4041FA36A1E00232452 /* BaseDateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB72F4031FA36A1E00232452 /* BaseDateHandler.swift */; };
 		BB7B03AF1F852E5E0062D719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B03AE1F852E5E0062D719 /* AppDelegate.swift */; };
@@ -69,6 +71,8 @@
 		BB31ABEB1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsStructureAndTimeTimeTableViewCell.swift; sourceTree = "<group>"; };
 		BB31ABED1F964F9F00F28195 /* TotalTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTimeTableViewCell.swift; sourceTree = "<group>"; };
 		BB31ABF01F969EB800F28195 /* CellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
+		BB6864AE1FBDCCC300A178B1 /* SetGoalsXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetGoalsXib.xib; sourceTree = "<group>"; };
+		BB6864B01FBDCCF700A178B1 /* SetGoals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGoals.swift; sourceTree = "<group>"; };
 		BB72F4011FA292BC00232452 /* CheckInOutRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInOutRange.swift; sourceTree = "<group>"; };
 		BB72F4031FA36A1E00232452 /* BaseDateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDateHandler.swift; sourceTree = "<group>"; };
 		BB7B03AB1F852E5E0062D719 /* ShowUp Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShowUp Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +208,7 @@
 				BB31ABEB1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift */,
 				BB31ABED1F964F9F00F28195 /* TotalTimeTableViewCell.swift */,
 				BBE55D831FB1E5CE00EC10A8 /* EditChecksCell */,
+				BB6864B01FBDCCF700A178B1 /* SetGoals.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				BBAC7F2B1F994FC900DD4356 /* WeekResumeCellXib.xib */,
 				BBF6BCF51FA7D539008CE455 /* DatePickerXib.xib */,
 				BB80B05F1FAA64B30092C67A /* EditChecks */,
+				BB6864AE1FBDCCC300A178B1 /* SetGoalsXib.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,6 +387,7 @@
 				BB7B03B41F852E5E0062D719 /* Main.storyboard in Resources */,
 				BBE55D8F1FB23DF200EC10A8 /* AddManualCheckTableViewCell.xib in Resources */,
 				BB0E0AD81F990AD6009565AC /* CheckInOutRangeViewXib.xib in Resources */,
+				BB6864AF1FBDCCC300A178B1 /* SetGoalsXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +424,7 @@
 				BBE55D861FB1E62200EC10A8 /* EditChecksCell.swift in Sources */,
 				BB0E0AE21F992C0D009565AC /* CreateTestDatabase.swift in Sources */,
 				BB31ABEC1F964F9200F28195 /* LabelsStructureAndTimeTimeTableViewCell.swift in Sources */,
+				BB6864B11FBDCCF700A178B1 /* SetGoals.swift in Sources */,
 				BB72F4021FA292BC00232452 /* CheckInOutRange.swift in Sources */,
 				BBFDB37C1F9A35030069EE78 /* DoubleExtension.swift in Sources */,
 				BB31ABF11F969EB800F28195 /* CellIdentifier.swift in Sources */,

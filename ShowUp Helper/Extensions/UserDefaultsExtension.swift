@@ -147,11 +147,20 @@ extension UserDefaults {
     }
     
     ///Retrive minimal parameter
-    func retrieveMinimal(minimalCase: MinimalTime) -> Int? {
+    func retrieveMinimal(minimalCase: MinimalTime) -> Int {
         if let secTime = UserDefaults.standard.object(forKey: minimalCase.rawValue) as? Int {
             return secTime
         } else {
-            return nil
+            switch minimalCase {
+            case .month:
+                return 72000*20
+            case .week:
+                return 72000
+            case .morning:
+                return 432000
+            case .afternoon:
+                return 28800
+            }
         }
     }
 }

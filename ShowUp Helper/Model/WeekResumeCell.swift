@@ -22,27 +22,15 @@ class WeekResumeCell: UITableViewCell {
     static let identifier = "WeekResumeCellXib"
     
     private var minimalTimeMorning: Int {
-        if let minimalValue = UserDefaults().retrieveMinimal(minimalCase: .morning) {
-            return minimalValue
-        } else {
-            return 432000
-        }
+        return UserDefaults().retrieveMinimal(minimalCase: .morning)
     }
     
     private var minimalTimeAfternoon: Int {
-        if let minimalValue = UserDefaults().retrieveMinimal(minimalCase: .afternoon) {
-            return minimalValue
-        } else {
-            return 28800
-        }
+        return UserDefaults().retrieveMinimal(minimalCase: .afternoon)
     }
     
     private var minimalTime: Int {
-        if let minimalValue = UserDefaults().retrieveMinimal(minimalCase: .week) {
-            return minimalValue
-        } else {
-            return 72000
-        }
+        return UserDefaults().retrieveMinimal(minimalCase: .week)
     }
     
     var totalMorning: Double = 0

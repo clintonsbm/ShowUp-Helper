@@ -100,11 +100,21 @@ class ProfileViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
+        let setGoals = UIAlertAction(title: "Define Time Goals", style: .default) { (_) in
+            let setGoalsView = SetGoals.createView()
+            
+            setGoalsView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 300)
+            
+            self.view.addSubview(setGoalsView)
+            setGoalsView.appearFromBottom(in: self.view)
+        }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(changeProfilePictureAction)
         alert.addAction(removeProfilePictureAction)
         alert.addAction(changeProfileNameAction)
+        alert.addAction(setGoals)
         alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
