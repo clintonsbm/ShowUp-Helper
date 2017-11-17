@@ -38,6 +38,7 @@ class WeekResumeCell: UITableViewCell {
     
     private let emojiTrue = "✅"
     private let emojiFalse = "⚠️"
+    private let emojiNeutral = "🆓"
     
     override func awakeFromNib() {
         self.selectionStyle = .none
@@ -75,22 +76,34 @@ class WeekResumeCell: UITableViewCell {
             self.totalTimeWeek.text = "\(totalTime.h):\(totalTime.m)"
         }
         
-        if totalTimeMorning >= self.minimalTimeMorning {
-            self.checkMorning.text = self.emojiTrue
+        if self.minimalTimeMorning != 0 {
+            if totalTimeMorning >= self.minimalTimeMorning {
+                self.checkMorning.text = self.emojiTrue
+            } else {
+                self.checkMorning.text = self.emojiFalse
+            }
         } else {
-            self.checkMorning.text = self.emojiFalse
+            self.checkMorning.text = self.emojiNeutral
         }
         
-        if totalTimeAfternoon >= self.minimalTimeAfternoon {
-            self.checkAfternoon.text = self.emojiTrue
+        if self.minimalTimeAfternoon != 0 {
+            if totalTimeAfternoon >= self.minimalTimeAfternoon {
+                self.checkAfternoon.text = self.emojiTrue
+            } else {
+                self.checkAfternoon.text = self.emojiFalse
+            }
         } else {
-            self.checkAfternoon.text = self.emojiFalse
+            self.checkAfternoon.text = self.emojiNeutral
         }
         
-        if totalTimeMorning + totalTimeAfternoon >= self.minimalTime {
-            self.checkTimeWeek.text = self.emojiTrue
+        if self.minimalTime != 0 {
+            if totalTimeMorning + totalTimeAfternoon >= self.minimalTime {
+                self.checkTimeWeek.text = self.emojiTrue
+            } else {
+                self.checkTimeWeek.text = self.emojiFalse
+            }
         } else {
-            self.checkTimeWeek.text = self.emojiFalse
+            self.checkTimeWeek.text = self.emojiNeutral
         }
     }
     
