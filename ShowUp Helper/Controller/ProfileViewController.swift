@@ -139,6 +139,10 @@ class ProfileViewController: UIViewController {
     }
     
     func setupView() {
+        if let name = UserDefaults().retrieveProfileName() {
+            self.userNameLbl.text = name
+        }
+        
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height/2
         self.changeQRCodeBackView.dropShadow()
         self.resetWorkingHoursBackView.dropShadow()
@@ -180,6 +184,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                         let textField = alert.textFields?.first!
                         
                         if textField?.text?.count != 0 {
+                            UserDefaults().saveProfile(name: (textField?.text)!)
                             self.userNameLbl.text = textField?.text
                             
                         } else {

@@ -41,6 +41,10 @@ extension UserDefaults {
         return "profileImage"
     }
     
+    private var profileName: String {
+        return "profileName"
+    }
+    
     ///Inverts the status of checking. True is Checking In and false is Checking Out.
     func invertCheck(checkController: ChecksController) {
         
@@ -164,8 +168,19 @@ extension UserDefaults {
         }
     }
     
-    ///Save user name
-    //salva aqui pvt
+    ///Save profile name
+    func saveProfile(name: String) {
+        UserDefaults.standard.set(name, forKey: self.profileName)
+    }
+    
+    ///Retrieve profile name
+    func retrieveProfileName() -> String? {
+        if let name = UserDefaults.standard.object(forKey: self.profileName) as? String {
+            return name
+        } else {
+            return nil
+        }
+    }
 }
 
 
