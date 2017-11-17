@@ -212,16 +212,33 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 extension ProfileViewController: AlertTextFieldDelegate {
     func showAlert(with sender: UIButton, and identifier: MinimalTime) {
-        let alert = UIAlertController(title: "Profile name", message: nil, preferredStyle: .alert)
+        
+        var alertTitle: String {
+            
+            switch identifier {
+            case .week:
+                return "Total"
+            case .morning:
+                return "Morning"
+            case .afternoon:
+                return "Afternoon"
+            default:
+                return ""
+            }
+        }
+        
+        let alert = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
+        
         alert.addTextField { (textField) in
-            textField.placeholder = "Ex: 8:20"
+            textField.placeholder = "Ex: 8.20"
+            textField.keyboardType = .decimalPad
         }
         
         let save = UIAlertAction(title: "Save", style: .default) { (action) in
             let textField = alert.textFields?.first!
             
             if textField?.text?.count != 0 {
-                let separatedString = textField?.text?.split(separator: ":")
+                let separatedString = textField?.text?.split(separator: ".")
                 
                 if let stringOfTimes = separatedString {
                     if stringOfTimes.count >= 2 {
