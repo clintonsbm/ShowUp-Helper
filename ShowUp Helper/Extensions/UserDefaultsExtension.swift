@@ -128,14 +128,14 @@ extension UserDefaults {
     }
     
     ///Retrieves the profile image
-    func retriveProfileImage() -> UIImage {
+    func retriveProfileImage() -> UIImage? {
         
         guard let imageData = UserDefaults.standard.object(forKey: self.profileImage) as? Data else {
-            return #imageLiteral(resourceName: "emptyStateProfile")
+            return nil
         }
         
         guard let image = UIImage(data: imageData) else {
-            return UIImage(named: self.profileImage)!
+            return nil
         }
         
         return image

@@ -42,17 +42,22 @@ class QRViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
+        self.setupView()
         self.imagePicker.delegate = self
         
         self.checkController.updateLabelsDelegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         self.checkController.syncTimer()
         
         self.totalOfDay = self.checkController.getHoursWorkedToday()
         
-        self.setupView()
+        let totalHoursDay: (h: Int, m: Int, s: Int) = self.checkController.getHoursWorkedToday()
+        
+        self.dayTimeLbl.text = "\(totalHoursDay.h.formatTwoCases()):\(totalHoursDay.m.formatTwoCases()):\(totalHoursDay.s.formatTwoCases())"
     }
 
     override func didReceiveMemoryWarning() {
@@ -145,6 +150,8 @@ extension QRViewController: UpdateLabelsDelegate {
         let totalHoursDay: (h: Int, m: Int, s: Int) = self.checkController.getHoursWorkedToday()
         
         self.dayTimeLbl.text = "\(totalHoursDay.h.formatTwoCases()):\(totalHoursDay.m.formatTwoCases()):\(totalHoursDay.s.formatTwoCases())"
+        
+//        self.elapsedTimeLbl.text = "00:00:00"
     }
 }
 

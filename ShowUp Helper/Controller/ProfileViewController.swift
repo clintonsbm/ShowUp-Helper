@@ -144,12 +144,12 @@ class ProfileViewController: UIViewController {
         self.resetWorkingHoursBackView.dropShadow()
         self.logOutBackView.dropShadow()
         
-        self.profileImageView.image = UserDefaults().retriveProfileImage()
-        
-        if self.profileImageView.image == #imageLiteral(resourceName: "emptyStateProfile") {
+        if let imageProfile = UserDefaults().retriveProfileImage() {
+            self.profileImageView.image = imageProfile
+        } else {
             self.isProfileChanging = true
             let selectImageGesture = UITapGestureRecognizer(target: self, action: #selector(self.selectImage))
-        
+            
             self.profileImageView.isUserInteractionEnabled = true
             self.profileImageView.addGestureRecognizer(selectImageGesture)
         }
