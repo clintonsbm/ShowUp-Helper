@@ -138,8 +138,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="lWw-6o-r2A">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="WGB-Ke-FDS">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="btz-dp-Wmd">
-                                <rect key="frame" x="282" y="11" width="22" height="22"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="btz-dp-Wmd">
+                                <rect key="frame" x="274" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="editProfile"/>
                                 <connections>

@@ -92,7 +92,7 @@ class ProfileViewController: UIViewController {
         
         let removeProfilePictureAction = UIAlertAction(title: "Remove Profile Picture", style: .destructive) { (_) in
             self.profileImageView.image = #imageLiteral(resourceName: "emptyStateProfile")
-            UserDefaults().saveProfileImage(image: #imageLiteral(resourceName: "emptyStateProfile"))
+            UserDefaults.standard.set(nil, forKey: "profileImage")
             self.isProfileChanging = true
             let selectImageGesture = UITapGestureRecognizer(target: self, action: #selector(self.selectImage))
             
