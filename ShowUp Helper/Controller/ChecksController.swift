@@ -64,7 +64,9 @@ class ChecksController: NSObject {
                 print("Could not save. \(error), \(error.userInfo)")
             }
             
-            self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            DispatchQueue.main.async {
+                self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+            }
             
             return nil
         } else {
@@ -102,7 +104,10 @@ class ChecksController: NSObject {
                 print("Could not save. \(error), \(error.userInfo)")
             }
             
-            self.timer?.invalidate()
+            DispatchQueue.main.async {
+                self.timer?.invalidate()
+            }
+            
             self.finalizeTimer()
         }
     }
